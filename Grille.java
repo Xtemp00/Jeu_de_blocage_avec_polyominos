@@ -10,10 +10,10 @@ public class Grille {
      */
     private Position[][] grille;
     Grille () {
-        grille = new Position[10][12];
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 12; j++) {
-                grille[i][j] = new Position();
+        grille = new Position[10][12]; // 10 lignes et 12 colonnes
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                grille[i][j] = new Position(); // chaque case de la grille est un objet de type Position
             }
         }
     }
