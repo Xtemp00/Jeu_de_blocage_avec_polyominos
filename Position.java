@@ -3,7 +3,7 @@ public class Position {
     private int pos_x;
     private int pos_y;
     Position() {
-        valeur = "O";
+        valeur = "#";
         pos_x = 0;
         pos_y = 0;
     }
