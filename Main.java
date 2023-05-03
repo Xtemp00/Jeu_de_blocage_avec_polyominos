@@ -21,6 +21,21 @@ public class Main {
         piece.setPos_y(4);
         grille.placerPiece(piece);
         grille.afficher();
+        piece.Tetrominos_T();
+        piece.setPos_x(6);
+        piece.setPos_y(6);
+        grille.placerPiece(piece);
+        grille.afficher();
+        piece.Tetrominos_S();
+        piece.setPos_x(8);
+        piece.setPos_y(8);
+        grille.placerPiece(piece);
+        grille.afficher();
+        piece.Tetrominos_L();
+        piece.setPos_x(8);
+        piece.setPos_y(8);
+        grille.placerPiece(piece);
+        grille.afficher();
 
     }
 }
