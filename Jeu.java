@@ -8,13 +8,15 @@ public class Jeu {
     }
     public void Choose_Game(){
         scanner sc = new scanner(System.in);
-        System.out.println("Choisissez le mode de jeu : ");
-        System.out.println("1 : 1 joueur contre l'ordinateur avec toutes les pieces et toujours les mêmes pieces (Jeu de base)");
-        System.out.println("2 : 1 joueur contre l'ordinateur avec toutes les pieces");
-        System.out.println("3 : 1 joueur contre l'ordinateur avec seulement des dominos");
-        System.out.println("4 : 1 joueur contre l'ordinateur avec seulement des triominos");
-        System.out.println("5 : 1 joueur contre l'ordinateur avec seulement des tetrominos");
-        this.game = sc.nextInt();
+        do {
+            System.out.println("Choisissez le mode de jeu : ");
+            System.out.println("1 : 1 joueur contre l'ordinateur avec toutes les pieces et toujours les mêmes pieces (Jeu de base)");
+            System.out.println("2 : 1 joueur contre l'ordinateur avec toutes les pieces");
+            System.out.println("3 : 1 joueur contre l'ordinateur avec seulement des dominos");
+            System.out.println("4 : 1 joueur contre l'ordinateur avec seulement des triominos");
+            System.out.println("5 : 1 joueur contre l'ordinateur avec seulement des tetrominos");
+            this.game = sc.nextInt();
+        } while (this.game < 1 || this.game > 5);
 
     }
     public int getGame() {
@@ -32,25 +34,25 @@ public class Jeu {
         Piece[] triominos = new Piece[2];
         Piece[] tetrominos = new Piece[6];
         //dominos
-        dominos[0] = new Piece(2,"dominos", "#", 0, 0);
+        dominos[0] = new Piece(2, "dominos", "#", 0, 0);
         dominos[0].dominos();
         //triominos
-        triominos[0] = new Piece(3,"triominos", "#", 0, 0);
+        triominos[0] = new Piece(3, "triominos", "#", 0, 0);
         triominos[1].triominos_barre();
-        triominos[1] = new Piece(3,"triominos", "#", 0, 0);
+        triominos[1] = new Piece(3, "triominos", "#", 0, 0);
         triominos[1].triominos_L();
         //tetrominos
-        tetrominos[0] = new Piece(4,"tetrominos", "#", 0, 0);
+        tetrominos[0] = new Piece(4, "tetrominos", "#", 0, 0);
         tetrominos[0].Tetrominos_T();
-        tetrominos[1] = new Piece(4,"tetrominos", "#", 0, 0);
+        tetrominos[1] = new Piece(4, "tetrominos", "#", 0, 0);
         tetrominos[1].Tetrominos_S();
-        tetrominos[2] = new Piece(4,"tetrominos", "#", 0, 0);
+        tetrominos[2] = new Piece(4, "tetrominos", "#", 0, 0);
         tetrominos[2].Tetrominos_L();
-        tetrominos[3] = new Piece(4,"tetrominos", "#", 0, 0);
+        tetrominos[3] = new Piece(4, "tetrominos", "#", 0, 0);
         tetrominos[3].Tetrominos_Carre();
-        tetrominos[4] = new Piece(4,"tetrominos", "#", 0, 0);
+        tetrominos[4] = new Piece(4, "tetrominos", "#", 0, 0);
         tetrominos[4].Tetrominos_L_inverse();
-        tetrominos[5] = new Piece(4,"tetrominos", "#", 0, 0);
+        tetrominos[5] = new Piece(4, "tetrominos", "#", 0, 0);
         tetrominos[5].Tetrominos_S_inverse();
         //on va creer un tableau de pieces qui contiendra toutes les pieces
         Piece[] pieces = new Piece[9];
@@ -74,7 +76,7 @@ public class Jeu {
         pieces_ordinateur[6] = tetrominos[3];
         pieces_ordinateur[7] = tetrominos[4];
         pieces_ordinateur[8] = tetrominos[5];
-
+    }
 
 
 
