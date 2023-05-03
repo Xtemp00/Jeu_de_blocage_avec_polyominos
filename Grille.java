@@ -44,13 +44,13 @@ public class Grille {
      * @param piece
      */
     public void placerPiece(Piece piece) { // placer une piece sur la grille
-        int x = piece.getPos_x(); // position x de la piece
-        int y = piece.getPos_y(); // position y de la piece
-        int[][] matrice = piece.getMatrice(); // matrice de la piece
-        for (int i = 0; i < piece.getTaille(); i++) { // parcours de la matrice de la piece
-            for (int j = 0; j < piece.getTaille(); j++) { // parcours de la matrice de la piece
-                if (matrice[i][j] == 1) { // si la case de la matrice de la piece est egale a 1
-                    grille[x+i][y+j].setValeur(piece.getValeur()); // on place la piece sur la grille
+        int x = piece.getPos_x();
+        int y = piece.getPos_y();
+        int[][] matrice = piece.getMatrice();
+        for (int i = 0; i < piece.getTaille(); i++) {
+            for (int j = 0; j < piece.getTaille(); j++) {
+                if ((matrice[i][j] == 1) && (Est_dans_la_grille(x+i,y+j)) && (Est_vide(x+i,y+j))) {
+                    grille[x+i][y+j].setValeur(piece.getValeur());
                 }
             }
         }
@@ -61,7 +61,7 @@ public class Grille {
         }
         return false;
     }
-    public boolean Est_occupe(int x, int y) {
+    public boolean Est_Occupe(int x, int y) {
         if (grille[x][y].getValeur() != "#") {
             return true;
         }
@@ -73,7 +73,7 @@ public class Grille {
         }
         return false;
     }
-    public boolean Est_dans_la_grille(Piece piece) {
+    public boolean Piece_Est_dans_la_grille(Piece piece) {
         int x = piece.getPos_x();
         int y = piece.getPos_y();
         int[][] matrice = piece.getMatrice();
@@ -88,7 +88,7 @@ public class Grille {
         }
         return true;
     }
-    public boolean Est_libre(Piece piece) {
+    public boolean Piece_Est_libre(Piece piece) {
         int x = piece.getPos_x();
         int y = piece.getPos_y();
         int[][] matrice = piece.getMatrice();
@@ -111,5 +111,6 @@ public class Grille {
         }
         return false;
     }
+
 
 }
