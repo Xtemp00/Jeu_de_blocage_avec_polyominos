@@ -4,13 +4,23 @@ public class Piece {
     private String valeur;
     private int[][] matrice;
     private int taille;
+    private String Type;
     Piece() {
         valeur = "O";
         pos_x = 0;
         pos_y = 0;
         taille = 0;
         matrice = new int[taille][taille];
+        Type = "dominos";
 
+    }
+    Piece(int taille, String Type, String valeur, int pos_x, int pos_y) {
+        valeur = "O";
+        pos_x = 0;
+        pos_y = 0;
+        this.taille = taille;
+        matrice = new int[taille][taille];
+        this.Type = Type;
     }
 
     public int[][] getMatrice() {
@@ -71,23 +81,82 @@ public class Piece {
         this.setMatrice(matrice);
     }
 
-    public  void triominos() {
+    public void Tetrominos_L() {
+        this.setTaille(3);
+        int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        matrice[0][0] = 1;
+        matrice[1][0] = 1;
+        matrice[2][0] = 1;
+        matrice[3][0] = 1;
+        this.setMatrice(matrice);
+    }
+    public void Tetrominos_L_inverse() {
+        this.setTaille(3);
+        int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        matrice[0][2] = 1;
+        matrice[1][2] = 1;
+        matrice[2][1] = 1;
+        matrice[2][2] = 1;
+        this.setMatrice(matrice);
+    }
+    public void Tetrominos_T() {
+        this.setTaille(3);
+        int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        matrice[0][1] = 1;
+        matrice[1][0] = 1;
+        matrice[1][1] = 1;
+        matrice[1][2] = 1;
+        this.setMatrice(matrice);
+    }
+    public void Tetrominos_S() {
+        this.setTaille(3);
+        int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        matrice[0][1] = 1;
+        matrice[0][2] = 1;
+        matrice[1][0] = 1;
+        matrice[1][1] = 1;
+        this.setMatrice(matrice);
+    }
+    public void Tetrominos_Carre() {
         this.setTaille(3);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
         matrice[0][0] = 1;
         matrice[0][1] = 1;
-        matrice[0][2] = 1;
+        matrice[1][0] = 1;
+        matrice[1][1] = 1;
         this.setMatrice(matrice);
     }
-    public void tetrominos() {
-        this.setTaille(4);
+    public void Tetrominos_Barre() {
+        this.setTaille(3);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
         matrice[0][0] = 1;
-        matrice[0][1] = 1;
-        matrice[0][2] = 1;
-        matrice[0][3] = 1;
+        matrice[1][0] = 1;
+        matrice[2][0] = 1;
+        matrice[3][0] = 1;
         this.setMatrice(matrice);
     }
+    public void triominos_L() {
+        this.setTaille(3);
+        int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        matrice[0][0] = 1;
+        matrice[1][0] = 1;
+        matrice[1][1] = 1;
+        this.setMatrice(matrice);
+    }
+    public void triominos_barre() {
+        this.setTaille(3);
+        int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        matrice[0][0] = 1;
+        matrice[1][0] = 1;
+        matrice[2][0] = 1;
+        this.setMatrice(matrice);
+    }
+
+
+
+
+
+
 
 
 

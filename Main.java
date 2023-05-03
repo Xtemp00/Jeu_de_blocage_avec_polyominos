@@ -3,10 +3,6 @@ public class Main {
         Grille grille = new Grille();
         grille.afficher();
         Piece piece = new Piece();
-        piece.setTaille(2);
-        piece.setMatrice(new int[][]{{1,1},{1,1}});
-        piece.setPos_x(2);
-        piece.setPos_y(2);
         grille.placerPiece(piece);
         grille.afficher();
         piece.dominos();
@@ -15,9 +11,14 @@ public class Main {
         piece.rotation();
         grille.placerPiece(piece);
         grille.afficher();
-        piece.triominos();
-        piece.setPos_x(5);
-        piece.setPos_y(5);
+        piece.triominos_barre();
+        piece.setPos_x(2);
+        piece.setPos_y(2);
+        grille.placerPiece(piece);
+        grille.afficher();
+        piece.triominos_L();
+        piece.setPos_x(4);
+        piece.setPos_y(4);
         grille.placerPiece(piece);
         grille.afficher();
 
