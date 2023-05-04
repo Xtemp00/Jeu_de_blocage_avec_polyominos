@@ -76,6 +76,8 @@ public class Piece {
     public void dominos() {
         this.setTaille(2);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        // 0 1 0
+        // 0 1 0
         matrice[0][0] = 1;
         matrice[0][1] = 1;
         this.setMatrice(matrice);
@@ -84,15 +86,21 @@ public class Piece {
     public void Tetrominos_L() {
         this.setTaille(4);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        // 0 0 1 0
+        // 0 0 1 0
+        // 0 0 1 1
         matrice[0][0] = 1;
         matrice[1][0] = 1;
         matrice[2][0] = 1;
-        matrice[3][0] = 1;
+        matrice[2][1] = 1;
         this.setMatrice(matrice);
     }
     public void Tetrominos_L_inverse() {
         this.setTaille(4);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        // 0 0 1 0
+        // 0 0 1 0
+        // 0 1 1 0
         matrice[0][2] = 1;
         matrice[1][2] = 1;
         matrice[2][1] = 1;
@@ -102,6 +110,8 @@ public class Piece {
     public void Tetrominos_T() {
         this.setTaille(4);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        // 0 1 0
+        // 1 1 1
         matrice[0][1] = 1;
         matrice[1][0] = 1;
         matrice[1][1] = 1;
@@ -109,6 +119,8 @@ public class Piece {
         this.setMatrice(matrice);
     }
     public void Tetrominos_S() {
+        // 0 1 1
+        // 1 1 0
         this.setTaille(4);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
         matrice[0][1] = 1;
@@ -118,6 +130,8 @@ public class Piece {
         this.setMatrice(matrice);
     }
     public void Tetrominos_Carre() {
+        // 1 1
+        // 1 1
         this.setTaille(4);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
         matrice[0][0] = 1;
@@ -129,6 +143,10 @@ public class Piece {
     public void Tetrominos_Barre() {
         this.setTaille(4);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        // 0 0 1 0
+        // 0 0 1 0
+        // 0 0 1 0
+        // 0 0 1 0
         matrice[0][0] = 1;
         matrice[1][0] = 1;
         matrice[2][0] = 1;
@@ -138,6 +156,8 @@ public class Piece {
     public void Tetrominos_S_inverse() {
         this.setTaille(4);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        // 1 1 0
+        // 0 1 1
         matrice[0][0] = 1;
         matrice[0][1] = 1;
         matrice[1][1] = 1;
@@ -147,6 +167,8 @@ public class Piece {
     public void triominos_L() {
         this.setTaille(3);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        // 0 1 0
+        // 0 1 1
         matrice[0][0] = 1;
         matrice[1][0] = 1;
         matrice[1][1] = 1;
@@ -155,6 +177,9 @@ public class Piece {
     public void triominos_barre() {
         this.setTaille(3);
         int[][] matrice = new int[this.getTaille()][this.getTaille()];
+        // 0 1 0
+        // 0 1 0
+        // 0 1 0
         matrice[0][0] = 1;
         matrice[1][0] = 1;
         matrice[2][0] = 1;

@@ -112,5 +112,264 @@ public class Grille {
         return false;
     }
 
-
+    public void vider() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                grille[i][j].setValeur("#"); // chaque case de la grille est un objet de type Position
+            }
+        }
+    }
+    public boolean Dominos_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j+1)) {
+                        return true;
+                    }
+                    if (Est_libre(i+1, j)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Triominos_barre_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j+1)) {
+                        if (Est_libre(i, j+2)) {
+                            return true;
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+2, j)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Triominos_L_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j+1)) {
+                        if (Est_libre(i+1, j+1)) {
+                            return true;
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+1, j+1)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Tetrominos_barre_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j+1)) {
+                        if (Est_libre(i, j+2)) {
+                            if (Est_libre(i, j+3)) {
+                                return true;
+                            }
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+2, j)) {
+                            if (Est_libre(i+3, j)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Tetrominos_L_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j+1)) {
+                        if (Est_libre(i, j+2)) {
+                            if (Est_libre(i+1, j+2)) {
+                                return true;
+                            }
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+2, j)) {
+                            if (Est_libre(i+2, j+1)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Tetrominos_T_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j+1)) {
+                        if (Est_libre(i, j+2)) {
+                            if (Est_libre(i+1, j+1)) {
+                                return true;
+                            }
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+2, j)) {
+                            if (Est_libre(i+1, j+1)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Tetrominos_Z_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j+1)) {
+                        if (Est_libre(i+1, j+1)) {
+                            if (Est_libre(i+1, j+2)) {
+                                return true;
+                            }
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+1, j-1)) {
+                            if (Est_libre(i+2, j-1)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Tetrominos_Carre_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j+1)) {
+                        if (Est_libre(i+1, j)) {
+                            if (Est_libre(i+1, j+1)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Tetrominos_S_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 1; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j-1)) {
+                        if (Est_libre(i+1, j-1)) {
+                            if (Est_libre(i+1, j-2)) {
+                                return true;
+                            }
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+1, j+1)) {
+                            if (Est_libre(i+2, j+1)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Tetrominos_L_inverse_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 1; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j-1)) {
+                        if (Est_libre(i, j-2)) {
+                            if (Est_libre(i+1, j-2)) {
+                                return true;
+                            }
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+2, j)) {
+                            if (Est_libre(i+2, j+1)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Tetrominos_T_inverse_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 1; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j-1)) {
+                        if (Est_libre(i, j-2)) {
+                            if (Est_libre(i+1, j-1)) {
+                                return true;
+                            }
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+2, j)) {
+                            if (Est_libre(i+1, j+1)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Tetrominos_S_inverse_possible() {
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 12; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i, j+1)) {
+                        if (Est_libre(i+1, j+1)) {
+                            if (Est_libre(i+1, j+2)) {
+                                return true;
+                            }
+                        }
+                    }
+                    if (Est_libre(i+1, j)) {
+                        if (Est_libre(i+1, j-1)) {
+                            if (Est_libre(i+2, j-1)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
