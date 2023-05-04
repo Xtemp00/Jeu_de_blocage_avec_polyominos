@@ -123,10 +123,15 @@ public class Jeu {
             System.out.println("8 : Tetromino L inverse");
             System.out.println("9 : Tetromino S inverse");
             System.out.println("10 : tetromino barre");
+            System.out.println("11 : quittez le jeu");
             int choix = sc.nextInt();
-            while(choix < 1 || choix > 10){
-                System.out.println("Veuillez saisir un nombre entre 1 et 10 : ");
+            while(choix < 1 || choix > 11){
+                System.out.println("Veuillez saisir un nombre entre 1 et 11 : ");
                 choix = sc.nextInt();
+            }
+            if (choix == 11){
+                System.out.println("Vous avez quittez le jeu");
+                System.exit(0);
             }
             System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
             int pos_x = sc.nextInt();

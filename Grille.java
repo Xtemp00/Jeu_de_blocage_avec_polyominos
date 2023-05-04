@@ -49,8 +49,8 @@ public class Grille {
         int[][] matrice = piece.getMatrice();
         for (int i = 0; i < piece.getTaille(); i++) {
             for (int j = 0; j < piece.getTaille(); j++) {
-                if ((matrice[i][j] == 1) && (Est_dans_la_grille(x+i,y+j)) && (Est_vide(x+i,y+j))) {
-                    grille[x+i][y+j].setValeur(piece.getValeur());
+                if ((matrice[i][j] == 1) && (Est_dans_la_grille(y+i,x+j)) && (Est_vide(y+i,x+j))) {
+                    grille[y+i][x+j].setValeur(piece.getValeur());
                 }
             }
         }
