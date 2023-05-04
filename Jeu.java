@@ -1,3 +1,5 @@
+import sun.awt.X11.XSystemTrayPeer;
+
 import java.util.Scanner;
 public class Jeu {
     //il y aura 4 modes de jeu le premier sera le mode 1 joueur contre l'ordinateur avec toutes les pieces, le deuxieme
@@ -51,30 +53,43 @@ public class Jeu {
         Joueur ordinateur = new Joueur();
         Piece[] dominos = new Piece[1];
         Piece[] triominos = new Piece[2];
-        Piece[] tetrominos = new Piece[6];
+        Piece[] tetrominos = new Piece[7];
         //dominos
         dominos[0] = new Piece(2, "dominos", "O", 0, 0);
         dominos[0].dominos();
+        dominos[0].setValeur("0");
         //triominos
         triominos[0] = new Piece(3, "triominos", "O", 0, 0);
         triominos[0].triominos_barre();
+        triominos[0].setValeur("0");
         triominos[1] = new Piece(3, "triominos", "O", 0, 0);
         triominos[1].triominos_L();
+        triominos[1].setValeur("0");
         //tetrominos
         tetrominos[0] = new Piece(4, "tetrominos", "O", 0, 0);
         tetrominos[0].Tetrominos_T();
+        tetrominos[0].setValeur("0");
         tetrominos[1] = new Piece(4, "tetrominos", "O", 0, 0);
         tetrominos[1].Tetrominos_S();
+        tetrominos[1].setValeur("0");
         tetrominos[2] = new Piece(4, "tetrominos", "O", 0, 0);
         tetrominos[2].Tetrominos_L();
+        tetrominos[2].setValeur("0");
         tetrominos[3] = new Piece(4, "tetrominos", "O", 0, 0);
         tetrominos[3].Tetrominos_Carre();
+        tetrominos[3].setValeur("0");
         tetrominos[4] = new Piece(4, "tetrominos", "O", 0, 0);
         tetrominos[4].Tetrominos_L_inverse();
+        tetrominos[4].setValeur("0");
         tetrominos[5] = new Piece(4, "tetrominos", "O", 0, 0);
         tetrominos[5].Tetrominos_S_inverse();
+        tetrominos[5].setValeur("0");
+        tetrominos[6] = new Piece(4, "tetrominos", "O", 0, 0);
+        tetrominos[6].Tetrominos_Barre();
+        tetrominos[6].setValeur("0");
         //on va creer un tableau de pieces qui contiendra toutes les pieces
-        Piece[] pieces = new Piece[9];
+        System.out.println(dominos[0].getValeur());
+        Piece[] pieces = new Piece[10];
         pieces[0] = dominos[0];
         pieces[1] = triominos[0];
         pieces[2] = triominos[1];
@@ -84,6 +99,7 @@ public class Jeu {
         pieces[6] = tetrominos[3];
         pieces[7] = tetrominos[4];
         pieces[8] = tetrominos[5];
+        pieces[9] = tetrominos[6];
         //on va creer un tableau de pieces qui contiendra toutes les pieces
         Piece[] pieces_ordinateur = new Piece[9];
         pieces_ordinateur[0] = dominos[0];
@@ -106,9 +122,10 @@ public class Jeu {
             System.out.println("7 : Tetromino Carre");
             System.out.println("8 : Tetromino L inverse");
             System.out.println("9 : Tetromino S inverse");
+            System.out.println("10 : tetromino barre");
             int choix = sc.nextInt();
-            while(choix < 1 || choix > 9){
-                System.out.println("Veuillez saisir un nombre entre 1 et 9 : ");
+            while(choix < 1 || choix > 10){
+                System.out.println("Veuillez saisir un nombre entre 1 et 10 : ");
                 choix = sc.nextInt();
             }
             System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
@@ -116,7 +133,7 @@ public class Jeu {
             System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
             int pos_y = sc.nextInt();
             while(pos_x < 0 || pos_x > 12 || pos_y < 0 || pos_y > 10){
-                System.out.println("Veuillez saisir une position entre 0 et 9 : ");
+                System.out.println("Veuillez saisir une position entre 0 et 12 : ");
                 System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
                 pos_x = sc.nextInt();
                 System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
