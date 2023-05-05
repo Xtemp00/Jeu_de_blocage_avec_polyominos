@@ -1,13 +1,32 @@
 import sun.awt.X11.XSystemTrayPeer;
-
 import java.util.Scanner;
+
+/**
+ * La classe Jeu permet de lancer différents modes de jeu pour jouer contre l'ordinateur.
+ * Les modes disponibles sont :
+ * - le mode de base avec toutes les pièces,
+ * - le mode avec seulement des dominos,
+ * - le mode avec seulement des triominos,
+ * - le mode avec seulement des tetrominos.
+ * Le choix du mode de jeu est effectué par l'utilisateur via la méthode Choose_Game().
+ */
+ 
 public class Jeu {
-    //il y aura 4 modes de jeu le premier sera le mode 1 joueur contre l'ordinateur avec toutes les pieces, le deuxieme
-    // avec seulement des dominos, le troisieme avec que les triominos et le quatrieme avec que les tetrominos
+/**
+     * Le numéro du mode de jeu choisi.
+     */
     private int game;
+    /**
+     * Constructeur par défaut de la classe Jeu.
+     * Initialise le mode de jeu à 1.
+     */
     public Jeu() {
         game = 1;
     }
+    /**
+     * Permet à l'utilisateur de choisir le mode de jeu parmi les modes disponibles.
+     * Le choix est effectué via une saisie clavier.
+     */
     public void Choose_Game(){
         Scanner sc = new Scanner(System.in);
         do {
@@ -19,8 +38,9 @@ public class Jeu {
             System.out.println("5 : 1 joueur contre l'ordinateur avec seulement des tetrominos");
             this.game = sc.nextInt();
         } while (this.game < 1 || this.game > 5);
+        // Lance le mode de jeu correspondant au choix de l'utilisateur.
         switch (this.game) {
-            case 1:
+            case 1: 
                 Game_Basic();
                 break;
             case 2:
@@ -38,14 +58,29 @@ public class Jeu {
         }
 
     }
-
+/**
+ * Retourne la valeur de l'attribut game.
+ * @return la valeur de l'attribut game.
+ */
     public int getGame() {
         return this.game;
     }
+/**
+ * Modifie la valeur de l'attribut game.
+ * @param game la nouvelle valeur de l'attribut game.
+ */
     public void setGame(int game) {
         this.game = game;
     }
-
+/**
+ * Initialise une partie du jeu.
+ * Crée une grille, un joueuret un joueur ordinateur (IA).
+ * Crée un tableau de pièces dominos, triominos et tetrominos, et les initialise.
+ * Crée un tableau de pièces qui contiendra toutes les pièces et un tableau pour les pièces de l'ordinateur.
+ * Demande à l'utilisateur de saisir une pièce à placer et affiche les options possibles.
+ * Tant que le joueur n'a pas gagné, continue la partie.
+ */
+ 
     public void Game_Basic() {
         Grille grille = new Grille();
         Joueur joueur = new Joueur();
@@ -151,13 +186,18 @@ public class Jeu {
         }
 
     }
+/**
+ * Cette méthode initialise une nouvelle partie de domino avec une grille, un joueur, un ordinateur et une pièce de domino.
+ * 
+ * @return void
+ */
 
     public void Game_Domino() {
         Grille grille = new Grille();
         Joueur joueur = new Joueur();
         Joueur ordinateur = new Joueur();
         Piece[] dominos = new Piece[1];
-        //dominos
+        //Initialisation de la pièce de dominos
         dominos[0] = new Piece(2, "dominos", "#", 0, 0);
         dominos[0].dominos();
         //on va creer un tableau de pieces qui contiendra toutes les pieces
@@ -167,18 +207,27 @@ public class Jeu {
         Piece[] pieces_ordinateur = new Piece[1];
         pieces_ordinateur[0] = dominos[0];
     }
+/**
+ * Cette méthode vérifie si un joueur a gagné en regardant si aucun joueur ne peut placer de pièce.
+ * 
+ * @param joueur Le joueur actuel.
+ * @param grille La grille actuelle.
+ * @return boolean indique si le joueur a gagné (true) ou non (false).
+ */
     public boolean Win_Joueur(Joueur joueur,Grille grille) {
         //pour detecter si il y a un gangant il faut que le joueur adverse ne puisse plus placer aucune pieces
         //on va donc regarder si les deux joueurs ne peuvent plus placer de pieces
-
+        // Vérification si les dominos peuvent être placés
         if (grille.Dominos_possible() == false) {
             return true;
         }
         else {
+            // Vérification si les triominos peuvent être placés
             if (grille.Triominos_barre_possible() == false && grille.Triominos_L_possible() == false) {
                 return true;
             }
             else {
+            // Vérification si les tetrominos peuvent être placés
                 if (grille.Tetrominos_Carre_possible() == false && grille.Tetrominos_L_possible() == false
                         && grille.Tetrominos_S_possible() == false && grille.Tetrominos_S_inverse_possible() == false
                         && grille.Tetrominos_T_possible() == false && grille.Tetrominos_L_inverse_possible() == false) {
