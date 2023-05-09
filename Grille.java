@@ -41,14 +41,14 @@ public class Grille {
         System.out.println();
     }
 
-    public void placerPiece(Piece piece) { // placer une piece sur la grille
+    public boolean placerPiece(Piece piece) { // placer une piece sur la grille
         int x = piece.getPos_x();
         int y = piece.getPos_y();
         boolean impossible = false;
         int[][] matrice = piece.getMatrice();
         for (int i = 0; i < piece.getTaille(); i++) {
             for (int j = 0; j < piece.getTaille(); j++) {
-                if ((matrice[i][j] == 1) || (Est_pas_dans_la_grille(y+i,x+j)) || (Est_Occupe(y+i,x+j))) {
+                if ((Est_pas_dans_la_grille(y+i,x+j)) || (Est_Occupe(y+i,x+j))) {
                     impossible = true;
                 }
             }
@@ -65,6 +65,7 @@ public class Grille {
                 }
             }
         }
+        return impossible;
     }
     /**
  * Vérifie si la case à la position (x, y) de la grille est vide.

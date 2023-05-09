@@ -147,49 +147,54 @@ public class Jeu {
         pieces_ordinateur[7] = tetrominos[4];
         pieces_ordinateur[8] = tetrominos[5];
         while(Win_Joueur(joueur,grille)== false){
-            System.out.println("Veuillez saisir la piece que vous voulez placer : ");
-            System.out.println("1 : Domino");
-            System.out.println("2 : Triomino barre");
-            System.out.println("3 : Triomino L");
-            System.out.println("4 : Tetromino T");
-            System.out.println("5 : Tetromino S");
-            System.out.println("6 : Tetromino L");
-            System.out.println("7 : Tetromino Carre");
-            System.out.println("8 : Tetromino L inverse");
-            System.out.println("9 : Tetromino S inverse");
-            System.out.println("10 : tetromino barre");
-            System.out.println("11 : quittez le jeu");
-            int choix = sc.nextInt();
-            while(choix < 1 || choix > 11){
-                System.out.println("Veuillez saisir un nombre entre 1 et 11 : ");
-                choix = sc.nextInt();
-            }
-            if (choix == 11){
-                System.out.println("Vous avez quittez le jeu");
-                System.exit(0);
-            }
-            pieces[choix-1].afficher();
-            System.out.println("Voulez vous tourner la piece ? (oui/non)");
-            String tourner = sc.next();
-            if (tourner.equals("oui")){
-                pieces[choix-1].rotation();
-                pieces[choix-1].afficher();
-            }
-            System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
-            int pos_x = sc.nextInt();
-            System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
-            int pos_y = sc.nextInt();
-            while(pos_x < 0 || pos_x > 12 || pos_y < 0 || pos_y > 10){
-                System.out.println("Veuillez saisir une position entre 0 et 12 : ");
-                System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
-                pos_x = sc.nextInt();
-                System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
-                pos_y = sc.nextInt();
-            }
-            pieces[choix-1].setPos_x(pos_x);
-            pieces[choix-1].setPos_y(pos_y);
-            grille.placerPiece(pieces[choix-1]);
-            grille.afficher();
+
+                boolean posable = true;
+                do {
+                    System.out.println("Veuillez saisir la piece que vous voulez placer : ");
+                    System.out.println("1 : Domino");
+                    System.out.println("2 : Triomino barre");
+                    System.out.println("3 : Triomino L");
+                    System.out.println("4 : Tetromino T");
+                    System.out.println("5 : Tetromino S");
+                    System.out.println("6 : Tetromino L");
+                    System.out.println("7 : Tetromino Carre");
+                    System.out.println("8 : Tetromino L inverse");
+                    System.out.println("9 : Tetromino S inverse");
+                    System.out.println("10 : tetromino barre");
+                    System.out.println("11 : quittez le jeu");
+                    int choix = sc.nextInt();
+                    while (choix < 1 || choix > 11) {
+                        System.out.println("Veuillez saisir un nombre entre 1 et 11 : ");
+                        choix = sc.nextInt();
+                    }
+                    if (choix == 11) {
+                        System.out.println("Vous avez quittez le jeu");
+                        System.exit(0);
+                    }
+                    pieces[choix - 1].afficher();
+                    System.out.println("Voulez vous tourner la piece ? (oui/non)");
+                    String tourner = sc.next();
+                    if (tourner.equals("oui")) {
+                        pieces[choix - 1].rotation();
+                        pieces[choix - 1].afficher();
+                    }
+                    System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
+                    int pos_x = sc.nextInt();
+                    System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
+                    int pos_y = sc.nextInt();
+                    while (pos_x < 0 || pos_x > 12 || pos_y < 0 || pos_y > 10) {
+                        System.out.println("Veuillez saisir une position entre 0 et 12 : ");
+                        System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
+                        pos_x = sc.nextInt();
+                        System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
+                        pos_y = sc.nextInt();
+                    }
+                    pieces[choix - 1].setPos_x(pos_x);
+                    pieces[choix - 1].setPos_y(pos_y);
+                    posable = grille.placerPiece(pieces[choix - 1]);
+                    grille.afficher();
+                    }while (posable);
+
         }
 
     }
