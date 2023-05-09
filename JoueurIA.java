@@ -127,9 +127,11 @@ public class JoueurIA {
     // elle apprendra tout sa en jouant contre elle meme via apprentisage par renforcement
 
     //on voudrais aussi crée une fonction qui permet a l'ia de choisir quelle piece elle va jouer en fonction de ce qui a deja ete jouer
-    public void jouer(){
+    public void learn(){
         //on voudrais que l'ia choisisse la piece qu'elle va jouer en fonction de ce qui a deja ete jouer
         //on voudrais aussi que l'ia choisisse la position de la piece qu'elle va jouer en fonction de ce qui a deja ete jouer
+        //on voudrais aussi que l'ia choisisse la rotation de la piece qu'elle va jouer en fonction de ce qui a deja ete jouer
+        //on voudrais aussi que l'ia choisisse la piece qu'elle va jouer en fonction de ce qui a deja ete jouer
 
     }
 }
