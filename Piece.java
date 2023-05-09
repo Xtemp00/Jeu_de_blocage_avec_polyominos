@@ -310,12 +310,4 @@ public class Piece {
         this.setMatrice(matrice);
     }
 
-
-
-
-
-
-
-
-
 }

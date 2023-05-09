@@ -44,11 +44,24 @@ public class Grille {
     public void placerPiece(Piece piece) { // placer une piece sur la grille
         int x = piece.getPos_x();
         int y = piece.getPos_y();
+        boolean impossible = false;
         int[][] matrice = piece.getMatrice();
         for (int i = 0; i < piece.getTaille(); i++) {
             for (int j = 0; j < piece.getTaille(); j++) {
-                if ((matrice[i][j] == 1) && (Est_dans_la_grille(y+i,x+j)) && (Est_vide(y+i,x+j))) {
-                    grille[y+i][x+j].setValeur(piece.getValeur());
+                if ((matrice[i][j] == 1) || (Est_pas_dans_la_grille(y+i,x+j)) || (Est_Occupe(y+i,x+j))) {
+                    impossible = true;
+                }
+            }
+        }
+        if (impossible) {
+            System.out.println("La case est déjà occupée impossible de placer la pièce");
+        }
+        else {
+            for (int i = 0; i < piece.getTaille(); i++) {
+                for (int j = 0; j < piece.getTaille(); j++) {
+                    if ((matrice[i][j] == 1) && (Est_dans_la_grille(y+i,x+j)) && (Est_vide(y+i,x+j))) {
+                        grille[y+i][x+j].setValeur(piece.getValeur());
+                    }
                 }
             }
         }
@@ -85,6 +98,13 @@ public class Grille {
  */
     public boolean Est_dans_la_grille(int x, int y) {
         if (x >= 0 && x < 10 && y >= 0 && y < 12) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean Est_pas_dans_la_grille(int x, int y) {
+        if (x < 0 || x >= 10 || y < 0 || y >= 12) {
             return true;
         }
         return false;
