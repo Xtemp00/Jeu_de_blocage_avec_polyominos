@@ -119,46 +119,6 @@ public class Joueur {
     public void setTriominos(Piece[] triominos) {
         this.triominos = triominos;
     }
-    /**
-    Définit le nombre de dominos du joueur.
-    @param nb_dominos le nouveau nombre de dominos du joueur.
-    */
-    public void setNb_dominos(int nb_dominos) {
-    this.nb_dominos = nb_dominos;
-    }
-
-/**
-
-    Retourne le tableau de dominos du joueur.
-    @return le tableau de dominos du joueur.
-    */
-    public Piece[] getDominos() {
-    return dominos;
-    }
-
-/**
-    Définit le tableau de dominos du joueur.
-    @param dominos le nouveau tableau de dominos du joueur.
-    */
-    public void setDominos(Piece[] dominos) {
-    this.dominos = dominos;
-    }
-
-    /**
-    Retourne le tableau de triominos du joueur.
-    @return le tableau de triominos du joueur.
-    */
-    public Piece[] getTriominos() {
-    return triominos;
-    }
-
-    /**
-    Définit le tableau de triominos du joueur.
-    @param triominos le nouveau tableau de triominos du joueur.
-    */
-    public void setTriominos(Piece[] triominos) {
-    this.triominos = triominos;
-    }
 
     /**
     Retourne le tableau de tetrominos du joueur.

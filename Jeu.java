@@ -168,6 +168,13 @@ public class Jeu {
                 System.out.println("Vous avez quittez le jeu");
                 System.exit(0);
             }
+            pieces[choix-1].afficher();
+            System.out.println("Voulez vous tourner la piece ? (oui/non)");
+            String tourner = sc.next();
+            if (tourner.equals("oui")){
+                pieces[choix-1].rotation();
+                pieces[choix-1].afficher();
+            }
             System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
             int pos_x = sc.nextInt();
             System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
@@ -230,7 +237,8 @@ public class Jeu {
             // Vérification si les tetrominos peuvent être placés
                 if (grille.Tetrominos_Carre_possible() == false && grille.Tetrominos_L_possible() == false
                         && grille.Tetrominos_S_possible() == false && grille.Tetrominos_S_inverse_possible() == false
-                        && grille.Tetrominos_T_possible() == false && grille.Tetrominos_L_inverse_possible() == false) {
+                        && grille.Tetrominos_T_possible() == false && grille.Tetrominos_L_inverse_possible() == false
+                        && grille.Tetrominos_barre_possible() == false) {
                     return true;
                 }
                 else {

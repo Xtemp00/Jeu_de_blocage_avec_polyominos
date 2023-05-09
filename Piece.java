@@ -75,7 +75,7 @@ public class Piece {
     public String getValeur() {
         return valeur;
     }
-        }
+
 
     /**
     Setter pour la valeur de la pièce
@@ -118,13 +118,13 @@ public class Piece {
     */
     public void rotation() {
         int[][] matrice = this.getMatrice();
-        int[][] matrice2 = new int[this.getTaille()][this.getTaille()];
+        int[][] matrice_rotation = new int[this.getTaille()][this.getTaille()];
         for (int i = 0; i < this.getTaille(); i++) {
             for (int j = 0; j < this.getTaille(); j++) {
-                matrice2[i][j] = matrice[this.getTaille()-j-1][i];
+                matrice_rotation[i][j] = matrice[this.getTaille() - j - 1][i];
             }
         }
-        this.setMatrice(matrice2);
+        this.setMatrice(matrice_rotation);
     }
     /**
     Cette méthode permet d'afficher la matrice de la pièce dans la console.

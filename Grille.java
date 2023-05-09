@@ -40,9 +40,7 @@ public class Grille {
         }
         System.out.println();
     }
-    /**
-     * @param piece
-     */
+
     public void placerPiece(Piece piece) { // placer une piece sur la grille
         int x = piece.getPos_x();
         int y = piece.getPos_y();
@@ -474,4 +472,5 @@ public class Grille {
         }
         return false;  // Si aucun placement n'est possible, retourne false
     }
+
 }
