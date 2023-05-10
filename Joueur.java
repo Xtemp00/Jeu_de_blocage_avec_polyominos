@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
    La classe Joueur représente un joueur du jeu de Tetrominos.
    Chaque joueur possède un nombre spécifique de pièces, soit :
@@ -135,5 +137,58 @@ public class Joueur {
         this.tetrominos = tetrominos;
     }
 
+    public int Saisir_Piece(Grille grille, Piece [] pieces){
+        int answer;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Veuillez saisir la piece que vous voulez placer : ");
+            System.out.println("1 : Domino");
+            System.out.println("2 : Triomino barre");
+            System.out.println("3 : Triomino L");
+            System.out.println("4 : Tetromino T");
+            System.out.println("5 : Tetromino S");
+            System.out.println("6 : Tetromino L");
+            System.out.println("7 : Tetromino Carre");
+            System.out.println("8 : Tetromino L inverse");
+            System.out.println("9 : Tetromino S inverse");
+            System.out.println("10 : tetromino barre");
+            System.out.println("11 : quittez le jeu");
+            answer = sc.nextInt();
+        }while(answer < 1 || answer > 11);
+        return answer = sc.nextInt();
+    }
+
+    public int Saisir_Rotation(){
+        int answer;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Veuillez saisir la rotation que vous voulez faire : ");
+            System.out.println("1 : 0°");
+            System.out.println("2 : 90°");
+            System.out.println("3 : 180°");
+            System.out.println("4 : 270°");
+            System.out.println("5 : quittez le jeu");
+            answer = sc.nextInt();
+        }while(answer < 1 || answer > 5);
+        return answer = sc.nextInt();
+    }
+    public int Saisir_Position_X(){
+        int answer;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
+            answer = sc.nextInt();
+        }while(answer < 0 || answer > 12);
+        return answer = sc.nextInt();
+    }
+    public int Saisir_Position_Y(){
+        int answer;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
+            answer = sc.nextInt();
+        }while(answer < 0 || answer > 10);
+        return answer = sc.nextInt();
+    }
 
 }

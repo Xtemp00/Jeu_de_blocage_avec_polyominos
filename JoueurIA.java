@@ -147,15 +147,20 @@ public class JoueurIA {
         int piece_aleatoire = (int) (Math.random() * nb_pieces);
 
         Piece piece = pieces_ordinateur[piece_aleatoire];
-        int rotation_aleatoire = (int) (Math.random() * 2);
-        if (rotation_aleatoire == 1) {
-            piece.rotation();
+        while(plateau.placerPiece(piece)) {
+            piece_aleatoire = (int) (Math.random() * nb_pieces);
+
+            piece = pieces_ordinateur[piece_aleatoire];
+            int rotation_aleatoire = (int) (Math.random() * 2);
+            if (rotation_aleatoire == 1) {
+                piece.rotation();
+            }
+            int position_x_aleatoire = (int) (Math.random() * 12);
+            int position_y_aleatoire = (int) (Math.random() * 10);
+            piece.setPos_x(position_x_aleatoire);
+            piece.setPos_y(position_y_aleatoire);
+            plateau.placerPiece(piece);
         }
-        int position_x_aleatoire = (int) (Math.random() * 12);
-        int position_y_aleatoire = (int) (Math.random() * 10);
-        piece.setPos_x(position_x_aleatoire);
-        piece.setPos_y(position_y_aleatoire);
-        plateau.placerPiece(piece);
         }
 
 }

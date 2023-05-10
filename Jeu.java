@@ -86,6 +86,7 @@ public class Jeu {
         Joueur joueur = new Joueur();
         Scanner sc = new Scanner(System.in);
         JoueurIA ordinateur = new JoueurIA();
+        int answer;
         Piece[] dominos = new Piece[1];
         Piece[] triominos = new Piece[2];
         Piece[] tetrominos = new Piece[7];
@@ -146,62 +147,37 @@ public class Jeu {
         pieces_ordinateur[6] = tetrominos[3];
         pieces_ordinateur[7] = tetrominos[4];
         pieces_ordinateur[8] = tetrominos[5];
-        while(Win_Joueur(joueur,grille)== false){
+        while(!Win_Joueur(joueur,grille)){
 
                 boolean posable = true;
                 do {
-                    System.out.println("Veuillez saisir la piece que vous voulez placer : ");
-                    System.out.println("1 : Domino");
-                    System.out.println("2 : Triomino barre");
-                    System.out.println("3 : Triomino L");
-                    System.out.println("4 : Tetromino T");
-                    System.out.println("5 : Tetromino S");
-                    System.out.println("6 : Tetromino L");
-                    System.out.println("7 : Tetromino Carre");
-                    System.out.println("8 : Tetromino L inverse");
-                    System.out.println("9 : Tetromino S inverse");
-                    System.out.println("10 : tetromino barre");
-                    System.out.println("11 : quittez le jeu");
-                    int choix = sc.nextInt();
-                    while (choix < 1 || choix > 11) {
-                        System.out.println("Veuillez saisir un nombre entre 1 et 11 : ");
-                        choix = sc.nextInt();
+                    answer = joueur.Saisir_Piece(grille,pieces);
+                    if (answer == 11){
+                        System.out.println("vous avez quittez la partie");
+                        System.exit(0);
+                    } else {
+                        pieces[answer-1].afficher();
                     }
-                    if (choix == 11) {
-                        System.out.println("Vous avez quittez le jeu");
+                    int answer2 = joueur.Saisir_Rotation();
+                    if (answer == 5){
+                        System.out.println("vous avez quittez la partie");
                         System.exit(0);
                     }
-                    pieces[choix - 1].afficher();
-                    System.out.println("Voulez vous tourner la piece ? (oui/non)\nPour quittez faite q et pour revenir au menu faite m");
-                    String tourner = sc.next();
-                    if (tourner.equals("oui")) {
-                        pieces[choix - 1].rotation();
-                        pieces[choix - 1].afficher();
+                    else {
+                        for(int i = 0; i < answer2; i++){
+                            pieces[answer-1].rotation();
+                        }
                     }
-                    if (tourner.equals("q")){
-                        System.out.println("Vous avez quittez le jeu");
-                        System.exit(0);
-                    }
-                    if (tourner.equals("m")){
-                        break;
-                    }
-                    System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
-                    int pos_x = sc.nextInt();
-                    System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
-                    int pos_y = sc.nextInt();
-                    while (pos_x < 0 || pos_x > 12 || pos_y < 0 || pos_y > 10) {
-                        System.out.println("Veuillez saisir une position entre 0 et 12 : ");
-                        System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
-                        pos_x = sc.nextInt();
-                        System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
-                        pos_y = sc.nextInt();
-                    }
-                    pieces[choix - 1].setPos_x(pos_x);
-                    pieces[choix - 1].setPos_y(pos_y);
-                    posable = grille.placerPiece(pieces[choix - 1]);
-                    grille.afficher();
+                    int answer3 = joueur.Saisir_Position_X();
+                    pieces[answer-1].setPos_x(answer3);
+                    int answer4 = joueur.Saisir_Position_Y();
+                    pieces[answer-1].setPos_y(answer4);
+                    posable = grille.placerPiece(pieces[answer-1]);
+
+
                     }while (posable);
                 ordinateur.jouer(grille,pieces_ordinateur);
+                System.out.println("L'ordinateur a joué : ");
                 grille.afficher();
 
         }
