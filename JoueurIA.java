@@ -130,10 +130,12 @@ public class JoueurIA {
 
     // on va crée une fonction qui permet a l'ia de choisir une pieces aléatoire parmis celle disponible puis la faire tourner ou non et la position au hasard sur le plateau de jeu
     /**
-     Choisit une pièce aléatoire parmis celles disponibles puis la fait tourner ou non et la positionne au hasard sur le plateau de jeu.
-     @param plateau Le plateau de jeu.
+     * Choisit une pièce aléatoire parmis celles disponibles puis la fait tourner ou non et la positionne au hasard sur le plateau de jeu.
+     *
+     * @param plateau           Le plateau de jeu.
+     * @param pieces_ordinateur
      */
-    public void jouer(Grille plateau) {
+    public void jouer(Grille plateau, Piece[] pieces_ordinateur) {
         int nb_pieces = this.getNb_pieces();
         int nb_triominos = this.getNb_triominos();
         int nb_tetrominos = this.getNb_tetrominos();
@@ -141,54 +143,22 @@ public class JoueurIA {
         Piece[] dominos = this.getDominos();
         Piece[] triominos = this.getTriominos();
         Piece[] tetrominos = this.getTetrominos();
-        int nb_pieces_totales = nb_pieces + nb_triominos + nb_tetrominos + nb_dominos;
-        int piece_aleatoire = (int) (Math.random() * nb_pieces_totales);
-        if (piece_aleatoire < nb_pieces) {
-            Piece piece = dominos[piece_aleatoire];
-            int rotation_aleatoire = (int) (Math.random() * 2);
-            if (rotation_aleatoire == 1) {
-                piece.rotation();
-            }
-            int position_x_aleatoire = (int) (Math.random() * 12);
-            int position_y_aleatoire = (int) (Math.random() * 10);
-            piece.setPos_x(position_x_aleatoire);
-            piece.setPos_y(position_y_aleatoire);
-            plateau.placerPiece(piece);
-        } else if (piece_aleatoire < nb_pieces + nb_triominos) {
-            Piece piece = triominos[piece_aleatoire - nb_pieces];
-            int rotation_aleatoire = (int) (Math.random() * 4);
-            for (int i = 0; i < rotation_aleatoire; i++) {
-                piece.rotation();
-            }
-            int position_x_aleatoire = (int) (Math.random() * 12);
-            int position_y_aleatoire = (int) (Math.random() * 10);
-            piece.setPos_x(position_x_aleatoire);
-            piece.setPos_y(position_y_aleatoire);
-            plateau.placerPiece(piece);
-        } else if (piece_aleatoire < nb_pieces + nb_triominos + nb_tetrominos) {
-            Piece piece = tetrominos[piece_aleatoire - nb_pieces - nb_triominos];
-            int rotation_aleatoire = (int) (Math.random() * 4);
-            for (int i = 0; i < rotation_aleatoire; i++) {
-                piece.rotation();
-            }
-            int position_x_aleatoire = (int) (Math.random() * 12);
-            int position_y_aleatoire = (int) (Math.random() * 10);
-            piece.setPos_x(position_x_aleatoire);
-            piece.setPos_y(position_y_aleatoire);
-            plateau.placerPiece(piece);
-        } else {
-            Piece piece = tetrominos[piece_aleatoire - nb_pieces - nb_triominos - nb_tetrominos];
-            int rotation_aleatoire = (int) (Math.random() * 4);
-            for (int i = 0; i < rotation_aleatoire; i++) {
-                piece.rotation();
-            }
-            int position_x_aleatoire = (int) (Math.random() * 12);
-            int position_y_aleatoire = (int) (Math.random() * 10);
-            piece.setPos_x(position_x_aleatoire);
-            piece.setPos_y(position_y_aleatoire);
-            plateau.placerPiece(piece);
+
+        int piece_aleatoire = (int) (Math.random() * nb_pieces);
+
+        Piece piece = pieces_ordinateur[piece_aleatoire];
+        int rotation_aleatoire = (int) (Math.random() * 2);
+        if (rotation_aleatoire == 1) {
+            piece.rotation();
         }
-    }
+        int position_x_aleatoire = (int) (Math.random() * 12);
+        int position_y_aleatoire = (int) (Math.random() * 10);
+        piece.setPos_x(position_x_aleatoire);
+        piece.setPos_y(position_y_aleatoire);
+        plateau.placerPiece(piece);
+        }
 
 }
+
+
 

@@ -201,7 +201,8 @@ public class Jeu {
                     posable = grille.placerPiece(pieces[choix - 1]);
                     grille.afficher();
                     }while (posable);
-                ordinateur.jouer(grille);
+                ordinateur.jouer(grille,pieces_ordinateur);
+                grille.afficher();
 
         }
 
