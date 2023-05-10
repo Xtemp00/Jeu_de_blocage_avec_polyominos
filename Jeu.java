@@ -85,7 +85,7 @@ public class Jeu {
         Grille grille = new Grille();
         Joueur joueur = new Joueur();
         Scanner sc = new Scanner(System.in);
-        Joueur ordinateur = new Joueur();
+        JoueurIA ordinateur = new JoueurIA();
         Piece[] dominos = new Piece[1];
         Piece[] triominos = new Piece[2];
         Piece[] tetrominos = new Piece[7];
@@ -172,11 +172,18 @@ public class Jeu {
                         System.exit(0);
                     }
                     pieces[choix - 1].afficher();
-                    System.out.println("Voulez vous tourner la piece ? (oui/non)");
+                    System.out.println("Voulez vous tourner la piece ? (oui/non)\nPour quittez faite q et pour revenir au menu faite m");
                     String tourner = sc.next();
                     if (tourner.equals("oui")) {
                         pieces[choix - 1].rotation();
                         pieces[choix - 1].afficher();
+                    }
+                    if (tourner.equals("q")){
+                        System.out.println("Vous avez quittez le jeu");
+                        System.exit(0);
+                    }
+                    if (tourner.equals("m")){
+                        break;
                     }
                     System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
                     int pos_x = sc.nextInt();
@@ -194,6 +201,7 @@ public class Jeu {
                     posable = grille.placerPiece(pieces[choix - 1]);
                     grille.afficher();
                     }while (posable);
+                ordinateur.jouer(grille);
 
         }
 
