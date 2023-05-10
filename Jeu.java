@@ -159,7 +159,7 @@ public class Jeu {
                         pieces[answer-1].afficher();
                     }
                     int answer2 = joueur.Saisir_Rotation();
-                    if (answer == 5){
+                    if (answer2 == 5){
                         System.out.println("vous avez quittez la partie");
                         System.exit(0);
                     }

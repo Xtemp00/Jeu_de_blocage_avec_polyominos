@@ -147,7 +147,8 @@ public class JoueurIA {
         int piece_aleatoire = (int) (Math.random() * nb_pieces);
 
         Piece piece = pieces_ordinateur[piece_aleatoire];
-        while(plateau.placerPiece(piece)) {
+        boolean piece_placer = true;
+        while(piece_placer) {
             piece_aleatoire = (int) (Math.random() * nb_pieces);
 
             piece = pieces_ordinateur[piece_aleatoire];
@@ -159,7 +160,7 @@ public class JoueurIA {
             int position_y_aleatoire = (int) (Math.random() * 10);
             piece.setPos_x(position_x_aleatoire);
             piece.setPos_y(position_y_aleatoire);
-            plateau.placerPiece(piece);
+            piece_placer = plateau.placerPiece(piece);
         }
         }
 

@@ -155,7 +155,7 @@ public class Joueur {
             System.out.println("11 : quittez le jeu");
             answer = sc.nextInt();
         }while(answer < 1 || answer > 11);
-        return answer = sc.nextInt();
+        return answer;
     }
 
     public int Saisir_Rotation(){
@@ -170,7 +170,7 @@ public class Joueur {
             System.out.println("5 : quittez le jeu");
             answer = sc.nextInt();
         }while(answer < 1 || answer > 5);
-        return answer = sc.nextInt();
+        return answer;
     }
     public int Saisir_Position_X(){
         int answer;
@@ -179,7 +179,7 @@ public class Joueur {
             System.out.println("Veuillez saisir la position en x de la piece que vous voulez placer : ");
             answer = sc.nextInt();
         }while(answer < 0 || answer > 12);
-        return answer = sc.nextInt();
+        return answer;
     }
     public int Saisir_Position_Y(){
         int answer;
@@ -188,7 +188,7 @@ public class Joueur {
             System.out.println("Veuillez saisir la position en y de la piece que vous voulez placer : ");
             answer = sc.nextInt();
         }while(answer < 0 || answer > 10);
-        return answer = sc.nextInt();
+        return answer;
     }
 
 }
