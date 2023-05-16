@@ -148,7 +148,7 @@ public class Piece {
         // 0 1 0
         // 0 1 0
         matrice[0][0] = 1;
-        matrice[0][1] = 1;
+        matrice[1][0] = 1;
         this.setMatrice(matrice);
     }
     /**

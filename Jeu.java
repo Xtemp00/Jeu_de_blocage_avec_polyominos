@@ -160,12 +160,12 @@ public class Jeu {
                         pieces[answer-1].afficher();
                     }
                     int answer2 = joueur.Saisir_Rotation();
-                    if (answer2 == 5){
+                    if (answer2 == 4){
                         System.out.println("vous avez quittez la partie");
                         System.exit(0);
                     }
                     else {
-                        for(int i = 0; i < answer2-1; i++){
+                        for(int i = 0; i < answer2; i++){
                             pieces[answer-1].rotation();
                         }
                     }

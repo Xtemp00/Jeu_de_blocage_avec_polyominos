@@ -163,13 +163,13 @@ public class Joueur {
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("Veuillez saisir la rotation que vous voulez faire : ");
-            System.out.println("1 : 0°");
-            System.out.println("2 : 90°");
-            System.out.println("3 : 180°");
-            System.out.println("4 : 270°");
-            System.out.println("5 : quittez le jeu");
+            System.out.println("0 : 0°");
+            System.out.println("1 : 90°");
+            System.out.println("2 : 180°");
+            System.out.println("3 : 270°");
+            System.out.println("4 : quittez le jeu");
             answer = sc.nextInt();
-        }while(answer < 1 || answer > 5);
+        }while(answer < 0 || answer > 4);
         return answer;
     }
     public int Saisir_Position_X(){
