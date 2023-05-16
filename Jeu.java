@@ -98,26 +98,26 @@ public class Jeu {
         triominos[0] = new Piece(3, "triominos", "O", 0, 0);
         triominos[0].triominos_barre();
         triominos[0].setValeur("0");
-        triominos[1] = new Piece(3, "triominos", "O", 0, 0);
+        triominos[1] = new Piece(2, "triominos", "O", 0, 0);
         triominos[1].triominos_L();
         triominos[1].setValeur("0");
         //tetrominos
-        tetrominos[0] = new Piece(4, "tetrominos", "O", 0, 0);
+        tetrominos[0] = new Piece(3, "tetrominos", "O", 0, 0);
         tetrominos[0].Tetrominos_T();
         tetrominos[0].setValeur("0");
-        tetrominos[1] = new Piece(4, "tetrominos", "O", 0, 0);
+        tetrominos[1] = new Piece(3, "tetrominos", "O", 0, 0);
         tetrominos[1].Tetrominos_S();
         tetrominos[1].setValeur("0");
-        tetrominos[2] = new Piece(4, "tetrominos", "O", 0, 0);
+        tetrominos[2] = new Piece(3, "tetrominos", "O", 0, 0);
         tetrominos[2].Tetrominos_L();
         tetrominos[2].setValeur("0");
-        tetrominos[3] = new Piece(4, "tetrominos", "O", 0, 0);
+        tetrominos[3] = new Piece(2, "tetrominos", "O", 0, 0);
         tetrominos[3].Tetrominos_Carre();
         tetrominos[3].setValeur("0");
-        tetrominos[4] = new Piece(4, "tetrominos", "O", 0, 0);
+        tetrominos[4] = new Piece(3, "tetrominos", "O", 0, 0);
         tetrominos[4].Tetrominos_L_inverse();
         tetrominos[4].setValeur("0");
-        tetrominos[5] = new Piece(4, "tetrominos", "O", 0, 0);
+        tetrominos[5] = new Piece(3, "tetrominos", "O", 0, 0);
         tetrominos[5].Tetrominos_S_inverse();
         tetrominos[5].setValeur("0");
         tetrominos[6] = new Piece(4, "tetrominos", "O", 0, 0);
@@ -240,3 +240,4 @@ public class Jeu {
         }
     }
 }
+//crée un modele uml de cette classe

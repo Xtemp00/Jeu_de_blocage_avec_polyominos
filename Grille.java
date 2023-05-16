@@ -48,8 +48,10 @@ public class Grille {
         int[][] matrice = piece.getMatrice();
         for (int i = 0; i < piece.getTaille(); i++) {
             for (int j = 0; j < piece.getTaille(); j++) {
-                if ((Est_pas_dans_la_grille(y+i,x+j)) || (Est_Occupe(y+i,x+j))) {
-                    impossible = true;
+                if (matrice[i][j] == 1) {
+                    if ((Est_pas_dans_la_grille(y + i, x + j)) || (Est_Occupe(y + i, x + j))) {
+                        impossible = true;
+                    }
                 }
             }
         }
