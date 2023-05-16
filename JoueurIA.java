@@ -9,9 +9,9 @@ public class JoueurIA {
 
 
     JoueurIA() {
-        nb_pieces = 9;
+        nb_pieces = 10;
         nb_triominos = 2;
-        nb_tetrominos = 6;
+        nb_tetrominos = 7;
         nb_dominos = 1;
         dominos = new Piece[1];
         triominos = new Piece[2];
@@ -120,16 +120,7 @@ public class JoueurIA {
         this.tetrominos = tetrominos;
     }
 
-    //on voudrais crée une ou plusieurs foction qui permet a l'ai de jouer et de placer des pieces en fonction de ce qui a deja ete placer sans trop d'aleatoire
-    // l'ia devrais apprendre de ses erreurs et ne pas les refaire
-    // l'ia devrais aussi essayer de bloquer l'adversaire
-    // l'ia devrais aussi essayer de faire des coups qui lui permette de placer plusieurs pieces d'un coup
-    // elle fera tous sa via un arbre de decision
-
-    //on voudrais aussi crée une fonction qui permet a l'ia de choisir quelle piece elle va jouer en fonction de ce qui a deja ete jouer
-
-    // on va crée une fonction qui permet a l'ia de choisir une pieces aléatoire parmis celle disponible puis la faire tourner ou non et la position au hasard sur le plateau de jeu
-    /**
+   /**
      * Choisit une pièce aléatoire parmis celles disponibles puis la fait tourner ou non et la positionne au hasard sur le plateau de jeu.
      *
      * @param plateau           Le plateau de jeu.

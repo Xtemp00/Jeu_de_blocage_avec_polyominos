@@ -24,9 +24,9 @@ public class Joueur {
     Initialise les attributs du joueur avec des valeurs prédéfinies.
     */
     Joueur() {
-        nb_pieces = 9;
+        nb_pieces = 10;
         nb_triominos = 2;
-        nb_tetrominos = 6;
+        nb_tetrominos = 7;
         nb_dominos = 1;
         dominos = new Piece[1];
         triominos = new Piece[2];

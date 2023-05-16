@@ -137,7 +137,7 @@ public class Jeu {
         pieces[8] = tetrominos[5];
         pieces[9] = tetrominos[6];
         //on va creer un tableau de pieces qui contiendra toutes les pieces
-        Piece[] pieces_ordinateur = new Piece[9];
+        Piece[] pieces_ordinateur = new Piece[10];
         pieces_ordinateur[0] = dominos[0];
         pieces_ordinateur[1] = triominos[0];
         pieces_ordinateur[2] = triominos[1];
@@ -147,6 +147,7 @@ public class Jeu {
         pieces_ordinateur[6] = tetrominos[3];
         pieces_ordinateur[7] = tetrominos[4];
         pieces_ordinateur[8] = tetrominos[5];
+        pieces_ordinateur[9] = tetrominos[6];
         while(!Win_Joueur(joueur,grille)){
 
                 boolean posable = true;
@@ -164,7 +165,7 @@ public class Jeu {
                         System.exit(0);
                     }
                     else {
-                        for(int i = 0; i < answer2; i++){
+                        for(int i = 0; i < answer2-1; i++){
                             pieces[answer-1].rotation();
                         }
                     }
@@ -238,5 +239,4 @@ public class Jeu {
 
         }
     }
-
 }
