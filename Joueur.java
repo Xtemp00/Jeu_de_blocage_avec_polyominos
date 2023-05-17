@@ -30,7 +30,7 @@ public class Joueur {
         nb_dominos = 1;
         dominos = new Piece[1];
         triominos = new Piece[2];
-        tetrominos = new Piece[6];
+        tetrominos = new Piece[7];
 
 
     }
