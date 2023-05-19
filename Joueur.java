@@ -211,6 +211,7 @@ public class Joueur {
         return answer;
     }
 
+
     public int Saisir_Rotation(){
         int answer;
         Scanner sc = new Scanner(System.in);

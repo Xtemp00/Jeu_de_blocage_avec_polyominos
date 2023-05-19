@@ -185,7 +185,7 @@ public class Grille {
  */
     public boolean Dominos_possible() {
         for (int i = 0; i < 10; i++) { // 10 lignes
-            for (int j = 0; j < 12; j++) { // 12 colonnes
+            for (int j = 0; j < 13; j++) { // 12 colonnes
                 if (Est_libre(i, j)) {
                     if (Est_libre(i, j+1)) {
                         return true;
@@ -196,8 +196,24 @@ public class Grille {
                 }
             }
         }
+        //pour verifier lorsque le dominos est tourner sur le cote
+        for (int i = 0; i < 10; i++) { // 10 lignes
+            for (int j = 0; j < 13; j++) { // 12 colonnes
+                if (Est_libre(i, j)) {
+                    if (Est_libre(i+1, j)) {
+                        return true;
+                    }
+                    if (Est_libre(i, j+1)) {
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
+
+
+
     /**
 
     Vérifie s'il est possible de placer un Triomino en forme de barre dans la grille.

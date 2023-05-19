@@ -186,7 +186,7 @@ public class Jeu {
                 grille.afficher();
 
         }
-        if (Win_Joueur(grille)){
+        if (Win_Joueur(grille) && Total_Piece_Restante(pieces) == 0){
             System.out.println("Vous avez gagné");
         }
         else {
@@ -256,7 +256,7 @@ public class Jeu {
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
         }
-        if (Win_Joueur(grille)) {
+        if (Win_Joueur(grille) && Total_Piece_Restante(pieces) == 0) {
             System.out.println("Vous avez gagné");
         } else {
             System.out.println("l'Ordinateur avez a gagné");
@@ -326,7 +326,7 @@ public class Jeu {
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
         }
-        if(Win_Joueur(grille)){
+        if(Win_Joueur(grille) && Total_Piece_Restante(pieces) == 0){
             System.out.println("Vous avez gagné");
         }
         else{
@@ -434,7 +434,7 @@ public class Jeu {
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
         }
-        if(Win_Joueur(grille)){
+        if(Win_Joueur(grille) && Total_Piece_Restante(pieces) == 0){
             System.out.println("Vous avez gagné");
         }
         else{
@@ -528,11 +528,21 @@ public class Jeu {
             System.out.println("L'ordinateur 2 a joué : ");
             grille.afficher();
         }
-        if (Win_Joueur(grille)) {
+        if (Win_Joueur(grille) && Total_Piece_Restante(pieces) == 0) {
             System.out.println("L'ordinateur 1 a gagné");
         } else {
             System.out.println("l'Ordinateur 2 a gagné");
         }
+    }
+
+    public int Total_Piece_Restante(Piece[] pieces) {
+        int total = 0;
+        for (int i = 0; i < pieces.length; i++) {
+
+            total+= pieces[i].getEstjouer();
+
+        }
+        return total;
     }
 
 /**
