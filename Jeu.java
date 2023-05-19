@@ -32,28 +32,24 @@ public class Jeu {
         do {
             System.out.println("Choisissez le mode de jeu : ");
             System.out.println("1 : 1 joueur contre l'ordinateur avec toutes les pieces et toujours les mêmes pieces (Jeu de base)");
-            System.out.println("2 : 1 joueur contre l'ordinateur avec toutes les pieces");
-            System.out.println("3 : 1 joueur contre l'ordinateur avec seulement des dominos");
-            System.out.println("4 : 1 joueur contre l'ordinateur avec seulement des triominos");
-            System.out.println("5 : 1 joueur contre l'ordinateur avec seulement des tetrominos");
+            System.out.println("2 : 1 joueur contre l'ordinateur avec seulement des dominos");
+            System.out.println("3 : 1 joueur contre l'ordinateur avec seulement des triominos");
+            System.out.println("4 : 1 joueur contre l'ordinateur avec seulement des tetrominos");
             this.game = sc.nextInt();
-        } while (this.game < 1 || this.game > 5);
+        } while (this.game < 1 || this.game > 4);
         // Lance le mode de jeu correspondant au choix de l'utilisateur.
         switch (this.game) {
-            case 1: 
+            case 1:
                 Game_Basic();
                 break;
             case 2:
-                //Game_All_Pieces();
+                Game_Dominos();
                 break;
             case 3:
-                //Game_Dominos();
+                Game_Triominos();
                 break;
             case 4:
-                //Game_Triominos();
-                break;
-            case 5:
-                //Game_Tetrominos();
+                Game_Tetrominos();
                 break;
         }
 
