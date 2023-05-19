@@ -152,7 +152,7 @@ public class JoueurIA {
             piece_placer = plateau.placerPiece(piece);
         } while(pieces_ordinateur[piece_aleatoire].getEstjouer()<0 && piece_placer);
         pieces_ordinateur[piece_aleatoire].setEstjouer((pieces_ordinateur[piece_aleatoire].getEstjouer())-1);
-        System.out.println(pieces_ordinateur[piece_aleatoire].getEstjouer());
+
     }
 
 }

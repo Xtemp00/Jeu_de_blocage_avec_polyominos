@@ -28,8 +28,10 @@ public class Grille {
      * @return
      */
     public void afficher() {
+        //affichage de la grille avec les coordonnées sur les coté pour une meilleur visibilité
+        System.out.println("  0 1 2 3 4 5 6 7 8 9 10 11");
         for (int i = 0; i < 10; i++) { // 10 lignes
-            System.out.print("| "); // debut de ligne
+            System.out.print( i + " | "); // debut de ligne
             for (int j = 0; j < 12; j++) { // 12 colonnes
                 System.out.print(grille[i][j].getValeur() + " "); // affichage de la valeur de chaque case
                 if (j == 11){ // fin de ligne
