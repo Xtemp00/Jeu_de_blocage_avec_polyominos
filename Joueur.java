@@ -136,7 +136,13 @@ public class Joueur {
     public void setTetrominos(Piece[] tetrominos) {
         this.tetrominos = tetrominos;
     }
-
+      /**
+ * Demande au joueur de saisir la pièce qu'il souhaite placer sur la grille.
+ *
+ * @param grille  La grille de jeu.
+ * @param pieces  Le tableau de pièces disponibles.
+ * @return Le numéro de la pièce choisie par le joueur.
+ */
     public int Saisir_Piece(Grille grille, Piece [] pieces){
         int answer;
         Scanner sc = new Scanner(System.in);
@@ -160,6 +166,13 @@ public class Joueur {
         }while((answer < 1 || answer > 11) && pieces[answer-1].getEstjouer() >= 1);
         return answer;
     }
+   /**
+ * Demande au joueur de saisir la pièce de domino qu'il souhaite placer.
+ *
+ * @param grille  La grille du jeu.
+ * @param pieces  Le tableau des pièces de domino.
+ * @return L'indice de la pièce choisie par le joueur.
+ */
     public int Saisir_Piece_Domino(Grille grille, Piece [] pieces){
         int answer;
         Scanner sc = new Scanner(System.in);
@@ -174,6 +187,13 @@ public class Joueur {
         }while((answer < 1 || answer > 2) && pieces[answer-1].getEstjouer() >= 1);
         return answer;
     }
+   /**
+ * Demande au joueur de saisir le Triomino qu'il souhaite placer sur la grille.
+ *
+ * @param grille  La grille de jeu.
+ * @param pieces  Le tableau de Triominos disponibles.
+ * @return Le numéro du Triomino choisi par le joueur.
+ */
     public int Saisir_Piece_Triominos(Grille grille, Piece [] pieces){
         int answer;
         Scanner sc = new Scanner(System.in);
@@ -189,7 +209,13 @@ public class Joueur {
         }while((answer < 1 || answer > 3) && pieces[answer-1].getEstjouer() >= 1);
         return answer;
     }
-
+   /**
+ * Demande au joueur de saisir le Tétromino qu'il souhaite placer sur la grille.
+ *
+ * @param grille  La grille de jeu.
+ * @param pieces  Le tableau de Tétrominos disponibles.
+ * @return Le numéro du Tétromino choisi par le joueur.
+ */
     public int Saisir_Piece_Tetrominos(Grille grille, Piece [] pieces){
         int answer;
         Scanner sc = new Scanner(System.in);
@@ -211,7 +237,11 @@ public class Joueur {
         return answer;
     }
 
-
+ /**
+ * Demande au joueur de saisir la rotation qu'il souhaite effectuer.
+ *
+ * @return Le numéro de la rotation choisie par le joueur.
+ */
     public int Saisir_Rotation(){
         int answer;
         Scanner sc = new Scanner(System.in);
@@ -226,6 +256,11 @@ public class Joueur {
         }while(answer < 0 || answer > 4);
         return answer;
     }
+ /**
+ * Demande au joueur de saisir la position en X de la pièce qu'il souhaite placer.
+ *
+ * @return La position en X saisie par le joueur.
+ */
     public int Saisir_Position_X(){
         int answer;
         Scanner sc = new Scanner(System.in);
@@ -235,6 +270,11 @@ public class Joueur {
         }while(answer < 0 || answer > 12);
         return answer;
     }
+   /**
+ * Demande au joueur de saisir la position en Y de la pièce qu'il souhaite placer.
+ *
+ * @return La position en Y saisie par le joueur.
+ */
     public int Saisir_Position_Y(){
         int answer;
         Scanner sc = new Scanner(System.in);
