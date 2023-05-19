@@ -173,6 +173,7 @@ public class Jeu {
 
 
                     }while (posable);
+                pieces[answer-1].setEstjouer(pieces[answer-1].getEstjouer()-1);
                 ordinateur.jouer(grille,pieces_ordinateur);
                 System.out.println("L'ordinateur a joué : ");
                 grille.afficher();
@@ -243,6 +244,7 @@ public class Jeu {
 
 
             } while (posable);
+            pieces[answer-1].setEstjouer(pieces[answer-1].getEstjouer()-1);
             ordinateur.jouer(grille, pieces_ordinateur);
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
@@ -312,6 +314,7 @@ public class Jeu {
                 pieces[answer - 1].setPos_y(answer4);
                 posable = grille.placerPiece(pieces[answer - 1]);
             } while (posable);
+            pieces[answer-1].setEstjouer(pieces[answer-1].getEstjouer()-1);
             ordinateur.jouer(grille, pieces_ordinateur);
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
@@ -419,6 +422,7 @@ public class Jeu {
                 pieces[answer - 1].setPos_y(answer4);
                 posable = grille.placerPiece(pieces[answer - 1]);
             } while (posable);
+            pieces[answer-1].setEstjouer(pieces[answer-1].getEstjouer()-1);
             ordinateur.jouer(grille, pieces_ordinateur);
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
