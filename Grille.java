@@ -24,9 +24,10 @@ public class Grille {
         }
     }
 
-    /**
-     * @return
-     */
+  /**
+ * Affiche la grille avec les coordonnées sur les côtés pour une meilleure visibilité.
+ * Chaque case de la grille est représentée par sa valeur.
+ */
     public void afficher() {
         //affichage de la grille avec les coordonnées sur les coté pour une meilleur visibilité
         System.out.println("  0 1 2 3 4 5 6 7 8 9 10 11");
@@ -42,7 +43,12 @@ public class Grille {
         }
         System.out.println();
     }
-
+    /**
+ * Place une pièce sur la grille.
+ *
+ * @param piece La pièce à placer sur la grille.
+ * @return true si la pièce ne peut pas être placée (case déjà occupée), false sinon.
+ */
     public boolean placerPiece(Piece piece) { // placer une piece sur la grille
         int x = piece.getPos_x();
         int y = piece.getPos_y();
