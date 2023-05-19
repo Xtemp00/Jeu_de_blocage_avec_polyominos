@@ -8,6 +8,7 @@ public class Piece {
     private int[][] matrice;
     private int taille;
     private String Type;
+    private int Estjouer;
     
     /**
     Constructeur par défaut de la classe Piece.
@@ -20,6 +21,8 @@ public class Piece {
         taille = 0;
         matrice = new int[taille][taille];
         Type = "dominos";
+        Estjouer = 1;
+
 
     }
     /**
@@ -32,13 +35,14 @@ public class Piece {
     @param pos_x la position x de la pièce
     @param pos_y la position y de la pièce
     */
-    Piece(int taille, String Type, String valeur, int pos_x, int pos_y) {
+    Piece(int taille, String Type, String valeur, int pos_x, int pos_y, int Estjouer) {
         valeur = "O";
         pos_x = 0;
         pos_y = 0;
         this.taille = taille;
         matrice = new int[taille][taille];
         this.Type = Type;
+        this.Estjouer = Estjouer;
     }
     /**
     Getter pour la matrice de la pièce
@@ -112,6 +116,13 @@ public class Piece {
     public void setPos_y(int pos_y) {
         this.pos_y = pos_y;
     }
+
+    public int getEstjouer() {
+        return Estjouer;
+    }
+    public void setEstjouer(int Estjouer) {
+        this.Estjouer = Estjouer;
+    }
     /**
     Cette méthode permet de faire une rotation de la matrice de la pièce dans le sens des aiguilles d'une montre.
     La matrice est modifiée directement dans l'objet courant.
@@ -126,6 +137,7 @@ public class Piece {
         }
         this.setMatrice(matrice_rotation);
     }
+
     /**
     Cette méthode permet d'afficher la matrice de la pièce dans la console.
     */
