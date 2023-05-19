@@ -63,6 +63,7 @@ public class Grille {
                 for (int j = 0; j < piece.getTaille(); j++) {
                     if ((matrice[i][j] == 1) && (Est_dans_la_grille(y+i,x+j)) && (Est_vide(y+i,x+j))) {
                         grille[y+i][x+j].setValeur(piece.getValeur());
+                        System.out.println(piece.getValeur());
                     }
                 }
             }

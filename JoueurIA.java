@@ -134,10 +134,10 @@ public class JoueurIA {
         Piece[] dominos = this.getDominos();
         Piece[] triominos = this.getTriominos();
         Piece[] tetrominos = this.getTetrominos();
-        Piece piece = null;
+        Piece piece;
         int piece_aleatoire;
-       boolean piece_placer;
-       do {
+        boolean piece_placer;
+        do {
             piece_aleatoire = (int) (Math.random() * pieces_ordinateur.length);
 
             piece = pieces_ordinateur[piece_aleatoire];
@@ -151,7 +151,7 @@ public class JoueurIA {
             piece.setPos_y(position_y_aleatoire);
             piece_placer = plateau.placerPiece(piece);
         } while(piece.getEstjouer()<0 && piece_placer);
-       pieces_ordinateur[piece_aleatoire].setEstjouer((pieces_ordinateur[piece_aleatoire].getEstjouer())-1);
+        pieces_ordinateur[piece_aleatoire].setEstjouer((pieces_ordinateur[piece_aleatoire].getEstjouer())-1);
     }
 
 }

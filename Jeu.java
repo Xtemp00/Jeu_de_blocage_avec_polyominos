@@ -176,7 +176,13 @@ public class Jeu {
                     pieces[answer-1].setPos_x(answer3);
                     int answer4 = joueur.Saisir_Position_Y();
                     pieces[answer-1].setPos_y(answer4);
-                    posable = grille.placerPiece(pieces[answer-1]);
+                    if (pieces[answer-1].getEstjouer() == 0){
+                        System.out.println("Vous ne pouvez plus jouer cette pièce");
+                        posable = false;
+                    }
+                    else {
+                        posable = grille.placerPiece(pieces[answer-1]);
+                    }
 
 
                     }while (posable);
@@ -247,7 +253,13 @@ public class Jeu {
                 pieces[answer - 1].setPos_x(answer3);
                 int answer4 = joueur.Saisir_Position_Y();
                 pieces[answer - 1].setPos_y(answer4);
-                posable = grille.placerPiece(pieces[answer - 1]);
+                if (pieces[answer-1].getEstjouer() == 0){
+                    System.out.println("Vous ne pouvez plus jouer cette pièce");
+                    posable = false;
+                }
+                else {
+                    posable = grille.placerPiece(pieces[answer-1]);
+                }
 
 
             } while (posable);
@@ -319,7 +331,13 @@ public class Jeu {
                 pieces[answer - 1].setPos_x(answer3);
                 int answer4 = joueur.Saisir_Position_Y();
                 pieces[answer - 1].setPos_y(answer4);
-                posable = grille.placerPiece(pieces[answer - 1]);
+                if (pieces[answer-1].getEstjouer() == 0){
+                    System.out.println("Vous ne pouvez plus jouer cette pièce");
+                    posable = false;
+                }
+                else {
+                    posable = grille.placerPiece(pieces[answer-1]);
+                }
             } while (posable);
             pieces[answer-1].setEstjouer(pieces[answer-1].getEstjouer()-1);
             ordinateur.jouer(grille, pieces_ordinateur);
@@ -427,7 +445,13 @@ public class Jeu {
                 pieces[answer - 1].setPos_x(answer3);
                 int answer4 = joueur.Saisir_Position_Y();
                 pieces[answer - 1].setPos_y(answer4);
-                posable = grille.placerPiece(pieces[answer - 1]);
+                if (pieces[answer-1].getEstjouer() == 0){
+                    System.out.println("Vous ne pouvez plus jouer cette pièce");
+                    posable = false;
+                }
+                else {
+                    posable = grille.placerPiece(pieces[answer-1]);
+                }
             } while (posable);
             pieces[answer-1].setEstjouer(pieces[answer-1].getEstjouer()-1);
             ordinateur.jouer(grille, pieces_ordinateur);
@@ -489,15 +513,25 @@ public class Jeu {
         System.out.println(dominos[0].getValeur());
         Piece[] pieces = new Piece[10];
         pieces[0] = dominos[0];
+        pieces[0].setValeur("0");
         pieces[1] = triominos[0];
+        pieces[1].setValeur("0");
         pieces[2] = triominos[1];
+        pieces[2].setValeur("0");
         pieces[3] = tetrominos[0];
+        pieces[3].setValeur("0");
         pieces[4] = tetrominos[1];
+        pieces[4].setValeur("0");
         pieces[5] = tetrominos[2];
+        pieces[5].setValeur("0");
         pieces[6] = tetrominos[3];
+        pieces[6].setValeur("0");
         pieces[7] = tetrominos[4];
+        pieces[7].setValeur("0");
         pieces[8] = tetrominos[5];
+        pieces[8].setValeur("0");
         pieces[9] = tetrominos[6];
+        pieces[9].setValeur("0");
         //on va creer un tableau de pieces qui contiendra toutes les pieces
         Piece[] pieces_ordinateur = new Piece[10];
         pieces_ordinateur[0] = dominos[0];
@@ -521,10 +555,10 @@ public class Jeu {
         pieces_ordinateur[9] = tetrominos[6];
         pieces_ordinateur[9].setValeur("1");
         while (!Win_Joueur(grille)) {
-            ordinateur.jouer(grille, pieces);
+            ordinateur2.jouer(grille, pieces_ordinateur);
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
-            ordinateur2.jouer(grille, pieces_ordinateur);
+            ordinateur.jouer(grille, pieces);
             System.out.println("L'ordinateur 2 a joué : ");
             grille.afficher();
         }
