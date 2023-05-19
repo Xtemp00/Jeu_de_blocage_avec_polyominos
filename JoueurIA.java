@@ -135,12 +135,12 @@ public class JoueurIA {
         Piece[] triominos = this.getTriominos();
         Piece[] tetrominos = this.getTetrominos();
 
-        int piece_aleatoire = (int) (Math.random() * nb_pieces);
+        int piece_aleatoire = (int) (Math.random() * pieces_ordinateur.length);
 
         Piece piece = pieces_ordinateur[piece_aleatoire];
         boolean piece_placer = true;
         while(piece_placer) {
-            piece_aleatoire = (int) (Math.random() * nb_pieces);
+            piece_aleatoire = (int) (Math.random() * pieces_ordinateur.length);
 
             piece = pieces_ordinateur[piece_aleatoire];
             int rotation_aleatoire = (int) (Math.random() * 2);

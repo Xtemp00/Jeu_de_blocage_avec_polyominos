@@ -182,6 +182,12 @@ public class Jeu {
                 grille.afficher();
 
         }
+        if (Win_Joueur(joueur,grille)){
+            System.out.println("Vous avez gagné");
+        }
+        else {
+            System.out.println("L'ordinateur a gagné");
+        }
 
     }
 /**
@@ -245,9 +251,16 @@ public class Jeu {
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
         }
-
+        if (Win_Joueur(joueur, grille)) {
+            System.out.println("Vous avez gagné");
+        } else {
+            System.out.println("l'Ordinateur avez a gagné");
+        }
     }
 
+    public void Game_Triominos() {
+
+    }
 
 /**
  * Cette méthode vérifie si un joueur a gagné en regardant si aucun joueur ne peut placer de pièce.
