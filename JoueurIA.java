@@ -7,7 +7,10 @@ public class JoueurIA {
     private Piece[] triominos;
     private Piece[] tetrominos;
 
-
+    /**
+ * Constructeur de la classe JoueurIA.
+ * Initialise les attributs de la classe, tels que le nombre de pièces et les tableaux de pièces.
+ */
     JoueurIA() {
         nb_pieces = 10;
         nb_triominos = 2;
