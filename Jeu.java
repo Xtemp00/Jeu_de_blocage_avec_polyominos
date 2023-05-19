@@ -328,6 +328,114 @@ public class Jeu {
         }
     }
 
+    public void Game_Tetrominos() {
+        int answer;
+        //on va creer un joueur et un ordinateur
+        Joueur joueur = new Joueur();
+        JoueurIA ordinateur = new JoueurIA();
+        //on va creer une grille
+        Grille grille = new Grille();
+        //on va creer un tableau de tetrominos
+        Piece[] tetrominos = new Piece[7];
+        tetrominos[0] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos[0].Tetrominos_Barre();
+        tetrominos[0].setValeur("0");
+        tetrominos[1] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos[1].Tetrominos_L();
+        tetrominos[1].setValeur("0");
+        tetrominos[2] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos[2].Tetrominos_S();
+        tetrominos[2].setValeur("0");
+        tetrominos[3] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos[3].Tetrominos_T();
+        tetrominos[3].setValeur("0");
+        tetrominos[4] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos[4].Tetrominos_Carre();
+        tetrominos[4].setValeur("0");
+        tetrominos[5] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos[5].Tetrominos_L_inverse();
+        tetrominos[5].setValeur("0");
+        tetrominos[6] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos[6].Tetrominos_S_inverse();
+        tetrominos[6].setValeur("0");
+        Piece[] tetrominos_ordinateur = new Piece[7];
+        tetrominos_ordinateur[0] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos_ordinateur[0].Tetrominos_Barre();
+        tetrominos_ordinateur[0].setValeur("1");
+        tetrominos_ordinateur[1] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos_ordinateur[1].Tetrominos_L();
+        tetrominos_ordinateur[1].setValeur("1");
+        tetrominos_ordinateur[2] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos_ordinateur[2].Tetrominos_S();
+        tetrominos_ordinateur[2].setValeur("1");
+        tetrominos_ordinateur[3] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos_ordinateur[3].Tetrominos_T();
+        tetrominos_ordinateur[3].setValeur("1");
+        tetrominos_ordinateur[4] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos_ordinateur[4].Tetrominos_Carre();
+        tetrominos_ordinateur[4].setValeur("1");
+        tetrominos_ordinateur[5] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos_ordinateur[5].Tetrominos_L_inverse();
+        tetrominos_ordinateur[5].setValeur("1");
+        tetrominos_ordinateur[6] = new Piece(4, "tetrominos", "O", 0, 0, 6);
+        tetrominos_ordinateur[6].Tetrominos_S_inverse();
+        tetrominos_ordinateur[6].setValeur("1");
+        //on va creer un tableau de pieces
+        Piece[] pieces = new Piece[7];
+        pieces[0] = tetrominos[0];
+        pieces[1] = tetrominos[1];
+        pieces[2] = tetrominos[2];
+        pieces[3] = tetrominos[3];
+        pieces[4] = tetrominos[4];
+        pieces[5] = tetrominos[5];
+        pieces[6] = tetrominos[6];
+        Piece[] pieces_ordinateur = new Piece[7];
+        pieces_ordinateur[0] = tetrominos_ordinateur[0];
+        pieces_ordinateur[1] = tetrominos_ordinateur[1];
+        pieces_ordinateur[2] = tetrominos_ordinateur[2];
+        pieces_ordinateur[3] = tetrominos_ordinateur[3];
+        pieces_ordinateur[4] = tetrominos_ordinateur[4];
+        pieces_ordinateur[5] = tetrominos_ordinateur[5];
+        pieces_ordinateur[6] = tetrominos_ordinateur[6];
+        while(!Win_Joueur(joueur,grille)) {
+
+            boolean posable = true;
+            do {
+                answer = joueur.Saisir_Piece_Tetrominos(grille, pieces);
+                if (answer == 3) {
+                    System.out.println("vous avez quittez la partie");
+                    System.exit(0);
+                } else {
+                    pieces[answer - 1].afficher();
+                }
+                int answer2 = joueur.Saisir_Rotation();
+                if (answer2 == 4) {
+                    System.out.println("vous avez quittez la partie");
+                    System.exit(0);
+                } else {
+                    for (int i = 0; i < answer2; i++) {
+                        pieces[answer - 1].rotation();
+                    }
+                }
+                int answer3 = joueur.Saisir_Position_X();
+                pieces[answer - 1].setPos_x(answer3);
+                int answer4 = joueur.Saisir_Position_Y();
+                pieces[answer - 1].setPos_y(answer4);
+                posable = grille.placerPiece(pieces[answer - 1]);
+            } while (posable);
+            ordinateur.jouer(grille, pieces_ordinateur);
+            System.out.println("L'ordinateur a joué : ");
+            grille.afficher();
+        }
+        if(Win_Joueur(joueur,grille)){
+            System.out.println("Vous avez gagné");
+        }
+        else{
+            System.out.println("l'Ordinateur avez a gagné");
+        }
+
+    }
+
 /**
  * Cette méthode vérifie si un joueur a gagné en regardant si aucun joueur ne peut placer de pièce.
  * 

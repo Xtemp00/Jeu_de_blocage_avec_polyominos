@@ -181,12 +181,33 @@ public class Joueur {
             System.out.println("Veuillez saisir la piece que vous voulez placer : ");
             System.out.println("1 : Triomino barre" + pieces[1].getEstjouer());
             System.out.println("2 : Triomino L" + pieces[2].getEstjouer());
-            System.out.println("3 : quittez le jeu" + pieces[10].getEstjouer());
+            System.out.println("3 : quittez le jeu");
             answer = sc.nextInt();
             if (pieces[answer-1].getEstjouer() == 0){
                 System.out.println("Vous ne pouvez pas jouer cette piece car vous l'avez déja joué");
             }
         }while((answer < 1 || answer > 3) && pieces[answer-1].getEstjouer() >= 1);
+        return answer;
+    }
+
+    public int Saisir_Piece_Tetrominos(Grille grille, Piece [] pieces){
+        int answer;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Veuillez saisir la piece que vous voulez placer : ");
+            System.out.println("1 : Tetromino barre" + pieces[0].getEstjouer());
+            System.out.println("2 : Tetromino L" + pieces[1].getEstjouer());
+            System.out.println("3 : Tetromino S" + pieces[2].getEstjouer());
+            System.out.println("4 : Tetromino T" + pieces[3].getEstjouer());
+            System.out.println("5 : Tetromino carre" + pieces[4].getEstjouer());
+            System.out.println("6 : Tetromino L inverse" + pieces[5].getEstjouer());
+            System.out.println("7 : tetromino T inverse" + pieces[6].getEstjouer());
+            System.out.println("8 : quittez le jeu");
+            answer = sc.nextInt();
+            if (pieces[answer-1].getEstjouer() == 0){
+                System.out.println("Vous ne pouvez pas jouer cette piece car vous l'avez déja joué");
+            }
+        }while((answer < 1 || answer > 8) && pieces[answer-1].getEstjouer() >= 1);
         return answer;
     }
 
