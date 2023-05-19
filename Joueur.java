@@ -160,6 +160,20 @@ public class Joueur {
         }while((answer < 1 || answer > 11) && pieces[answer-1].getEstjouer() == 1);
         return answer;
     }
+    public int Saisir_Piece_Domino(Grille grille, Piece [] pieces){
+        int answer;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Veuillez saisir la piece que vous voulez placer : ");
+            System.out.println("1 : Domino" + pieces[0].getEstjouer());
+            System.out.println("2 : quittez le jeu" + pieces[10].getEstjouer());
+            answer = sc.nextInt();
+            if (pieces[answer-1].getEstjouer() == 0){
+                System.out.println("Vous ne pouvez pas jouer cette piece car vous l'avez déja joué");
+            }
+        }while((answer < 1 || answer > 2) && pieces[answer-1].getEstjouer() == 1);
+        return answer;
+    }
 
     public int Saisir_Rotation(){
         int answer;

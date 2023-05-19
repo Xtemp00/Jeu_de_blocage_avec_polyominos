@@ -189,22 +189,66 @@ public class Jeu {
  * 
  * @return void
  */
-
-    public void Game_Domino() {
-        Grille grille = new Grille();
+    public void Game_Dominos() {
+        //fonction qui va initialiser lap artie mais dans lequel il y aura que des dominos c'est a dire pas de triominos ni de tetrominos
+        int answer;
+        //on va creer un joueur et un ordinateur
         Joueur joueur = new Joueur();
-        Joueur ordinateur = new Joueur();
+        JoueurIA ordinateur = new JoueurIA();
+        //on va creer une grille
+        Grille grille = new Grille();
+        //on va creer un tableau de dominos
         Piece[] dominos = new Piece[1];
-        //Initialisation de la pièce de dominos
-        dominos[0] = new Piece(2, "dominos", "#", 0, 0,1);
+        dominos[0] = new Piece(2, "dominos", "O", 0, 0, 29);
         dominos[0].dominos();
-        //on va creer un tableau de pieces qui contiendra toutes les pieces
+        dominos[0].setValeur("0");
+        Piece[] dominos_ordinateur = new Piece[1];
+        dominos_ordinateur[0] = new Piece(2, "dominos", "O", 0, 0, 29);
+        dominos_ordinateur[0].dominos();
+        dominos_ordinateur[0].setValeur("1");
+        //on va creer un tableau de pieces qui contiendra toutes les pieces;
         Piece[] pieces = new Piece[1];
         pieces[0] = dominos[0];
-        //on va creer un tableau de pieces qui contiendra toutes les pieces
+        //on va creer un tableau de pieces qui contiendra toutes les pieces;
         Piece[] pieces_ordinateur = new Piece[1];
-        pieces_ordinateur[0] = dominos[0];
+        pieces_ordinateur[0] = dominos_ordinateur[0];
+
+        while (!Win_Joueur(joueur, grille)) {
+
+            boolean posable = true;
+            do {
+                answer = joueur.Saisir_Piece_Domino(grille, pieces);
+                if (answer == 2) {
+                    System.out.println("vous avez quittez la partie");
+                    System.exit(0);
+                } else {
+                    pieces[answer - 1].afficher();
+                }
+                int answer2 = joueur.Saisir_Rotation();
+                if (answer2 == 4) {
+                    System.out.println("vous avez quittez la partie");
+                    System.exit(0);
+                } else {
+                    for (int i = 0; i < answer2; i++) {
+                        pieces[answer - 1].rotation();
+                    }
+                }
+                int answer3 = joueur.Saisir_Position_X();
+                pieces[answer - 1].setPos_x(answer3);
+                int answer4 = joueur.Saisir_Position_Y();
+                pieces[answer - 1].setPos_y(answer4);
+                posable = grille.placerPiece(pieces[answer - 1]);
+
+
+            } while (posable);
+            ordinateur.jouer(grille, pieces_ordinateur);
+            System.out.println("L'ordinateur a joué : ");
+            grille.afficher();
+        }
+
     }
+
+
 /**
  * Cette méthode vérifie si un joueur a gagné en regardant si aucun joueur ne peut placer de pièce.
  * 
