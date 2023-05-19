@@ -1,6 +1,8 @@
 import sun.awt.X11.XSystemTrayPeer;
 import java.util.Scanner;
 
+
+
 /**
  * La classe Jeu permet de lancer différents modes de jeu pour jouer contre l'ordinateur.
  * Les modes disponibles sont :
@@ -543,19 +545,19 @@ public class Jeu {
         //pour detecter si il y a un gangant il faut que le joueur adverse ne puisse plus placer aucune pieces
         //on va donc regarder si les deux joueurs ne peuvent plus placer de pieces
         // Vérification si les dominos peuvent être placés
-        if (grille.Dominos_possible() == false) {
+        if (!grille.Dominos_possible()) {
             return true;
         }
         else {
             // Vérification si les triominos peuvent être placés
-            if (grille.Triominos_barre_possible() == false && grille.Triominos_L_possible() == false) {
+            if (!grille.Triominos_barre_possible() && !grille.Triominos_L_possible()) {
                 return true;
             }
             else {
             // Vérification si les tetrominos peuvent être placés
-                if (grille.Tetrominos_Carre_possible() == false && grille.Tetrominos_L_possible() == false
-                        && grille.Tetrominos_S_possible() == false && grille.Tetrominos_S_inverse_possible() == false
-                        && grille.Tetrominos_T_possible() == false && grille.Tetrominos_L_inverse_possible() == false
+                if (!grille.Tetrominos_Carre_possible() && !grille.Tetrominos_L_possible()
+                        && !grille.Tetrominos_S_possible() && !grille.Tetrominos_S_inverse_possible()
+                        && !grille.Tetrominos_T_possible() && !grille.Tetrominos_L_inverse_possible()
                         && !grille.Tetrominos_barre_possible()) {
                     return true;
                 }
