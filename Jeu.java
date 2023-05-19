@@ -521,10 +521,10 @@ public class Jeu {
         pieces_ordinateur[9] = tetrominos[6];
         pieces_ordinateur[9].setValeur("1");
         while (!Win_Joueur(grille)) {
-            ordinateur.jouer(grille, pieces_ordinateur);
+            ordinateur.jouer(grille, pieces);
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
-            ordinateur2.jouer(grille, pieces);
+            ordinateur2.jouer(grille, pieces_ordinateur);
             System.out.println("L'ordinateur 2 a joué : ");
             grille.afficher();
         }
