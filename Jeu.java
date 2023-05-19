@@ -351,7 +351,14 @@ public class Jeu {
             System.out.println("l'Ordinateur avez a gagné");
         }
     }
-
+ /**
+ * Démarre le jeu des tétraminos.
+ * - Crée un joueur et un ordinateur.
+ * - Crée une grille.
+ * - Crée un tableau de tétraminos pour le joueur et l'ordinateur.
+ * - Effectue des tours de jeu jusqu'à ce que le joueur gagne ou n'ait plus de pièces restantes.
+ * - Affiche le résultat du jeu (gagnant).
+ */
     public void Game_Tetrominos() {
         int answer;
         //on va creer un joueur et un ordinateur
@@ -466,7 +473,9 @@ public class Jeu {
         }
 
     }
-
+/**
+ * Méthode pour exécuter le jeu entre l'IA et l'IA.
+ */
     public void Game_IA(){
         Grille grille = new Grille();
         JoueurIA ordinateur = new JoueurIA();
@@ -577,7 +586,12 @@ public class Jeu {
 
         }
     }
-
+   /**
+ * Calcule le nombre total de pièces restantes dans un tableau de pièces.
+ *
+ * @param pieces Le tableau de pièces.
+ * @return Le nombre total de pièces restantes.
+ */
     public int Total_Piece_Restante(Piece[] pieces) {
         int total = 0;
         for (Piece piece : pieces) {
