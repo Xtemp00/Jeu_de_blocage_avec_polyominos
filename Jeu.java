@@ -530,8 +530,10 @@ public class Jeu {
         }
         if (Win_Joueur(grille) && Total_Piece_Restante(pieces) == 0) {
             System.out.println("L'ordinateur 1 a gagné");
+            System.out.println(Total_Piece_Restante(pieces));
         } else {
             System.out.println("l'Ordinateur 2 a gagné");
+            System.out.println(Total_Piece_Restante(pieces_ordinateur));
         }
     }
 
