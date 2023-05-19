@@ -573,9 +573,9 @@ public class Jeu {
 
     public int Total_Piece_Restante(Piece[] pieces) {
         int total = 0;
-        for (int i = 0; i < pieces.length; i++) {
+        for (Piece piece : pieces) {
 
-            total+= pieces[i].getEstjouer();
+            total += piece.getEstjouer();
 
         }
         return total;
