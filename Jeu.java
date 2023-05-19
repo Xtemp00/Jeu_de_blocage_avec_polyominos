@@ -35,8 +35,9 @@ public class Jeu {
             System.out.println("2 : 1 joueur contre l'ordinateur avec seulement des dominos");
             System.out.println("3 : 1 joueur contre l'ordinateur avec seulement des triominos");
             System.out.println("4 : 1 joueur contre l'ordinateur avec seulement des tetrominos");
+            System.out.println("5 : 2 IA qui jouent entre elles avec toutes les pieces et toujours les mêmes pieces (Jeu de base)");
             this.game = sc.nextInt();
-        } while (this.game < 1 || this.game > 4);
+        } while (this.game < 1 || this.game > 5);
         // Lance le mode de jeu correspondant au choix de l'utilisateur.
         switch (this.game) {
             case 1:
@@ -51,6 +52,10 @@ public class Jeu {
             case 4:
                 Game_Tetrominos();
                 break;
+            case 5:
+                Game_IA();
+                break;
+
         }
 
     }
@@ -144,7 +149,7 @@ public class Jeu {
         pieces_ordinateur[7] = tetrominos[4];
         pieces_ordinateur[8] = tetrominos[5];
         pieces_ordinateur[9] = tetrominos[6];
-        while(!Win_Joueur(joueur,grille)){
+        while(!Win_Joueur(grille)){
 
                 boolean posable = true;
                 do {
@@ -179,7 +184,7 @@ public class Jeu {
                 grille.afficher();
 
         }
-        if (Win_Joueur(joueur,grille)){
+        if (Win_Joueur(grille)){
             System.out.println("Vous avez gagné");
         }
         else {
@@ -216,7 +221,7 @@ public class Jeu {
         Piece[] pieces_ordinateur = new Piece[1];
         pieces_ordinateur[0] = dominos_ordinateur[0];
 
-        while (!Win_Joueur(joueur, grille)) {
+        while (!Win_Joueur(grille)) {
 
             boolean posable = true;
             do {
@@ -249,7 +254,7 @@ public class Jeu {
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
         }
-        if (Win_Joueur(joueur, grille)) {
+        if (Win_Joueur(grille)) {
             System.out.println("Vous avez gagné");
         } else {
             System.out.println("l'Ordinateur avez a gagné");
@@ -288,7 +293,7 @@ public class Jeu {
         pieces_ordinateur[0] = triominos_ordinateur[0];
         pieces_ordinateur[1] = triominos_ordinateur[1];
 
-        while(!Win_Joueur(joueur,grille)) {
+        while(!Win_Joueur(grille)) {
 
             boolean posable = true;
             do {
@@ -319,7 +324,7 @@ public class Jeu {
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
         }
-        if(Win_Joueur(joueur,grille)){
+        if(Win_Joueur(grille)){
             System.out.println("Vous avez gagné");
         }
         else{
@@ -396,7 +401,7 @@ public class Jeu {
         pieces_ordinateur[4] = tetrominos_ordinateur[4];
         pieces_ordinateur[5] = tetrominos_ordinateur[5];
         pieces_ordinateur[6] = tetrominos_ordinateur[6];
-        while(!Win_Joueur(joueur,grille)) {
+        while(!Win_Joueur(grille)) {
 
             boolean posable = true;
             do {
@@ -427,7 +432,7 @@ public class Jeu {
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
         }
-        if(Win_Joueur(joueur,grille)){
+        if(Win_Joueur(grille)){
             System.out.println("Vous avez gagné");
         }
         else{
@@ -436,14 +441,105 @@ public class Jeu {
 
     }
 
+    public void Game_IA(){
+        Grille grille = new Grille();
+        JoueurIA ordinateur = new JoueurIA();
+        Scanner sc = new Scanner(System.in);
+        JoueurIA ordinateur2 = new JoueurIA();
+        int answer;
+        Piece[] dominos = new Piece[1];
+        Piece[] triominos = new Piece[2];
+        Piece[] tetrominos = new Piece[7];
+        //dominos
+        dominos[0] = new Piece(2, "dominos", "O", 0, 0,1);
+        dominos[0].dominos();
+        dominos[0].setValeur("0");
+        //triominos
+        triominos[0] = new Piece(3, "triominos", "O", 0, 0,1);
+        triominos[0].triominos_barre();
+        triominos[0].setValeur("0");
+        triominos[1] = new Piece(2, "triominos", "O", 0, 0,1);
+        triominos[1].triominos_L();
+        triominos[1].setValeur("0");
+        //tetrominos
+        tetrominos[0] = new Piece(3, "tetrominos", "O", 0, 0,1);
+        tetrominos[0].Tetrominos_T();
+        tetrominos[0].setValeur("0");
+        tetrominos[1] = new Piece(3, "tetrominos", "O", 0, 0,1);
+        tetrominos[1].Tetrominos_S();
+        tetrominos[1].setValeur("0");
+        tetrominos[2] = new Piece(3, "tetrominos", "O", 0, 0,1);
+        tetrominos[2].Tetrominos_L();
+        tetrominos[2].setValeur("0");
+        tetrominos[3] = new Piece(2, "tetrominos", "O", 0, 0,1);
+        tetrominos[3].Tetrominos_Carre();
+        tetrominos[3].setValeur("0");
+        tetrominos[4] = new Piece(3, "tetrominos", "O", 0, 0,1);
+        tetrominos[4].Tetrominos_L_inverse();
+        tetrominos[4].setValeur("0");
+        tetrominos[5] = new Piece(3, "tetrominos", "O", 0, 0,1);
+        tetrominos[5].Tetrominos_S_inverse();
+        tetrominos[5].setValeur("0");
+        tetrominos[6] = new Piece(4, "tetrominos", "O", 0, 0,1);
+        tetrominos[6].Tetrominos_Barre();
+        tetrominos[6].setValeur("0");
+        //on va creer un tableau de pieces qui contiendra toutes les pieces
+        System.out.println(dominos[0].getValeur());
+        Piece[] pieces = new Piece[10];
+        pieces[0] = dominos[0];
+        pieces[1] = triominos[0];
+        pieces[2] = triominos[1];
+        pieces[3] = tetrominos[0];
+        pieces[4] = tetrominos[1];
+        pieces[5] = tetrominos[2];
+        pieces[6] = tetrominos[3];
+        pieces[7] = tetrominos[4];
+        pieces[8] = tetrominos[5];
+        pieces[9] = tetrominos[6];
+        //on va creer un tableau de pieces qui contiendra toutes les pieces
+        Piece[] pieces_ordinateur = new Piece[10];
+        pieces_ordinateur[0] = dominos[0];
+        pieces_ordinateur[0].setValeur("1");
+        pieces_ordinateur[1] = triominos[0];
+        pieces_ordinateur[1].setValeur("1");
+        pieces_ordinateur[2] = triominos[1];
+        pieces_ordinateur[2].setValeur("1");
+        pieces_ordinateur[3] = tetrominos[0];
+        pieces_ordinateur[3].setValeur("1");
+        pieces_ordinateur[4] = tetrominos[1];
+        pieces_ordinateur[4].setValeur("1");
+        pieces_ordinateur[5] = tetrominos[2];
+        pieces_ordinateur[5].setValeur("1");
+        pieces_ordinateur[6] = tetrominos[3];
+        pieces_ordinateur[6].setValeur("1");
+        pieces_ordinateur[7] = tetrominos[4];
+        pieces_ordinateur[7].setValeur("1");
+        pieces_ordinateur[8] = tetrominos[5];
+        pieces_ordinateur[8].setValeur("1");
+        pieces_ordinateur[9] = tetrominos[6];
+        pieces_ordinateur[9].setValeur("1");
+        while (!Win_Joueur(grille)) {
+            ordinateur.jouer(grille, pieces_ordinateur);
+            System.out.println("L'ordinateur a joué : ");
+            grille.afficher();
+            ordinateur2.jouer(grille, pieces);
+            System.out.println("L'ordinateur 2 a joué : ");
+            grille.afficher();
+        }
+        if (Win_Joueur(grille)) {
+            System.out.println("L'ordinateur 1 a gagné");
+        } else {
+            System.out.println("l'Ordinateur 2 a gagné");
+        }
+    }
+
 /**
  * Cette méthode vérifie si un joueur a gagné en regardant si aucun joueur ne peut placer de pièce.
- * 
- * @param joueur Le joueur actuel.
+ *
  * @param grille La grille actuelle.
  * @return boolean indique si le joueur a gagné (true) ou non (false).
  */
-    public boolean Win_Joueur(Joueur joueur,Grille grille) {
+    public boolean Win_Joueur(Grille grille) {
         //pour detecter si il y a un gangant il faut que le joueur adverse ne puisse plus placer aucune pieces
         //on va donc regarder si les deux joueurs ne peuvent plus placer de pieces
         // Vérification si les dominos peuvent être placés
