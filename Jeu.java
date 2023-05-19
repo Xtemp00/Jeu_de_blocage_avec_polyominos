@@ -258,8 +258,74 @@ public class Jeu {
         }
     }
 
-    public void Game_Triominos() {
+    public void Game_Triominos(){
+        //fonction qui va initialiser lap artie mais dans lequel il y aura que des triominos c'est a dire pas de dominos ni de tetrominos
+        int answer;
+        //on va creer un joueur et un ordinateur
+        Joueur joueur = new Joueur();
+        JoueurIA ordinateur = new JoueurIA();
+        //on va creer une grille
+        Grille grille = new Grille();
+        //on va creer un tableau de triominos
+        Piece[] triominos = new Piece[2];
+        triominos[0] = new Piece(3, "triominos", "O", 0, 0, 6);
+        triominos[0].triominos_barre();
+        triominos[0].setValeur("0");
+        triominos[1] = new Piece(3, "triominos", "O", 0, 0, 6);
+        triominos[1].triominos_L();
+        triominos[1].setValeur("0");
+        Piece[] triominos_ordinateur = new Piece[2];
+        triominos_ordinateur[0] = new Piece(3, "triominos", "O", 0, 0, 6);
+        triominos_ordinateur[0].triominos_barre();
+        triominos_ordinateur[0].setValeur("1");
+        triominos_ordinateur[1] = new Piece(3, "triominos", "O", 0, 0, 6);
+        triominos_ordinateur[1].triominos_L();
+        triominos_ordinateur[1].setValeur("1");
+        //on va creer un tableau de pieces qui contiendra toutes les pieces;
+        Piece[] pieces = new Piece[2];
+        pieces[0] = triominos[0];
+        pieces[1] = triominos[1];
+        //on va creer un tableau de pieces qui contiendra toutes les pieces;
+        Piece[] pieces_ordinateur = new Piece[2];
+        pieces_ordinateur[0] = triominos_ordinateur[0];
+        pieces_ordinateur[1] = triominos_ordinateur[1];
 
+        while(!Win_Joueur(joueur,grille)) {
+
+            boolean posable = true;
+            do {
+                answer = joueur.Saisir_Piece_Triominos(grille, pieces);
+                if (answer == 3) {
+                    System.out.println("vous avez quittez la partie");
+                    System.exit(0);
+                } else {
+                    pieces[answer - 1].afficher();
+                }
+                int answer2 = joueur.Saisir_Rotation();
+                if (answer2 == 4) {
+                    System.out.println("vous avez quittez la partie");
+                    System.exit(0);
+                } else {
+                    for (int i = 0; i < answer2; i++) {
+                        pieces[answer - 1].rotation();
+                    }
+                }
+                int answer3 = joueur.Saisir_Position_X();
+                pieces[answer - 1].setPos_x(answer3);
+                int answer4 = joueur.Saisir_Position_Y();
+                pieces[answer - 1].setPos_y(answer4);
+                posable = grille.placerPiece(pieces[answer - 1]);
+            } while (posable);
+            ordinateur.jouer(grille, pieces_ordinateur);
+            System.out.println("L'ordinateur a joué : ");
+            grille.afficher();
+        }
+        if(Win_Joueur(joueur,grille)){
+            System.out.println("Vous avez gagné");
+        }
+        else{
+            System.out.println("l'Ordinateur avez a gagné");
+        }
     }
 
 /**
