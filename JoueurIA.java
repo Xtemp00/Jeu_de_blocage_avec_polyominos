@@ -126,7 +126,7 @@ public class JoueurIA {
      * @param plateau           Le plateau de jeu.
      * @param pieces_ordinateur
      */
-   public void jouer(Grille plateau, Piece[] pieces_ordinateur) {
+   public int jouer(Grille plateau, Piece[] pieces_ordinateur) {
         int nb_pieces = this.getNb_pieces();
         int nb_triominos = this.getNb_triominos();
         int nb_tetrominos = this.getNb_tetrominos();
@@ -151,7 +151,7 @@ public class JoueurIA {
             piece.setPos_y(position_y_aleatoire);
             piece_placer = plateau.placerPiece(piece);
         } while(pieces_ordinateur[piece_aleatoire].getEstjouer()<0 && piece_placer);
-        pieces_ordinateur[piece_aleatoire].setEstjouer((pieces_ordinateur[piece_aleatoire].getEstjouer())-1);
+        return piece_aleatoire;
 
     }
 

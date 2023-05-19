@@ -555,17 +555,26 @@ public class Jeu {
         pieces_ordinateur[9] = tetrominos[6];
         pieces_ordinateur[9].setValeur("1");
         while (!Win_Joueur(grille)) {
-            ordinateur2.jouer(grille, pieces_ordinateur);
+
+            int jouer = ordinateur2.jouer(grille, pieces_ordinateur);
+            int nbjouer = pieces_ordinateur[jouer].getEstjouer();
+            nbjouer--;
+            pieces_ordinateur[jouer].setEstjouer(nbjouer);
             System.out.println("L'ordinateur a joué : ");
             grille.afficher();
-            ordinateur.jouer(grille, pieces);
+            jouer = ordinateur.jouer(grille, pieces);
+            nbjouer = pieces[jouer].getEstjouer();
+            nbjouer--;
+            pieces[jouer].setEstjouer(nbjouer);
             System.out.println("L'ordinateur 2 a joué : ");
             grille.afficher();
         }
-        if (Win_Joueur(grille) && Total_Piece_Restante(pieces) <= 0) {
+        if (Total_Piece_Restante(pieces) <= 0) {
             System.out.println("L'ordinateur 1 a gagné");
+
         } else {
             System.out.println("l'Ordinateur 2 a gagné");
+
         }
     }
 
