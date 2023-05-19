@@ -3,7 +3,7 @@
  * @author Maroan AKKA 
  * @date 17 Mai 2023
  * @version 1.8
- * Github du projet : https://github.com/Xtemp00/Jeu_de_blocage_avec_polyominos
+ * Github du projet : <a href="https://github.com/Xtemp00/Jeu_de_blocage_avec_polyominos">...</a>
  */
 
 public class Main {

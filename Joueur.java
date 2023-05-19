@@ -152,7 +152,7 @@ public class Joueur {
             System.out.println("8 : Tetromino L inverse" + pieces[7].getEstjouer());
             System.out.println("9 : Tetromino S inverse" + pieces[8].getEstjouer());
             System.out.println("10 : tetromino barre" + pieces[9].getEstjouer());
-            System.out.println("11 : quittez le jeu" + pieces[10].getEstjouer());
+            System.out.println("11 : quittez le jeu");
             answer = sc.nextInt();
             if (pieces[answer-1].getEstjouer() == 0){
                 System.out.println("Vous ne pouvez pas jouer cette piece car vous l'avez déja joué");
@@ -166,7 +166,7 @@ public class Joueur {
         do {
             System.out.println("Veuillez saisir la piece que vous voulez placer : ");
             System.out.println("1 : Domino" + pieces[0].getEstjouer());
-            System.out.println("2 : quittez le jeu" + pieces[10].getEstjouer());
+            System.out.println("2 : quittez le jeu");
             answer = sc.nextInt();
             if (pieces[answer-1].getEstjouer() == 0){
                 System.out.println("Vous ne pouvez pas jouer cette piece car vous l'avez déja joué");
