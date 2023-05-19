@@ -196,7 +196,7 @@ public class Jeu {
         Joueur ordinateur = new Joueur();
         Piece[] dominos = new Piece[1];
         //Initialisation de la pièce de dominos
-        dominos[0] = new Piece(2, "dominos", "#", 0, 0);
+        dominos[0] = new Piece(2, "dominos", "#", 0, 0,1);
         dominos[0].dominos();
         //on va creer un tableau de pieces qui contiendra toutes les pieces
         Piece[] pieces = new Piece[1];
